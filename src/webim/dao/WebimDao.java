@@ -50,7 +50,7 @@ public class WebimDao {
 		// TODO Auto-generated method stub
 		List<WebimGroup> groups = new ArrayList<WebimGroup>();
 		WebimGroup g = new WebimGroup("group1", "group1");
-		g.setPic_url("/WebimPlugin/static/images/group.gif");
+		g.setPic_url("/Webim/static/images/group.gif");
 		groups.add(g);
 		return groups;
 	}

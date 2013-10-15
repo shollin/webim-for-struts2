@@ -4,7 +4,7 @@
     var _IMC = {
 	            production_name: 'struts2',
 	            version: '1.0',
-	            path: '/WebimPlugin/',
+	            path: '/Webim/',
 	            is_login: true,
 	            user: '',
 	            setting: '{}',

@@ -13,6 +13,6 @@
     <s:password name="password" key="label.password" size="20" />
     <s:submit method="execute" key="label.login" align="center" />
 </s:form>
-<script type="text/javascript" src="/WebimPlugin/run.do"></script>
+<script type="text/javascript" src="/Webim/run.do"></script>
 </body>
 </html>

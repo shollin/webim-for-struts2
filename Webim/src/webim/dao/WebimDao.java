@@ -25,6 +25,8 @@ import java.util.List;
 
 import webim.WebimEndpoint;
 import webim.WebimGroup;
+import webim.WebimMenu;
+import webim.WebimNotification;
 
 public class WebimDao {
 	
@@ -65,6 +67,19 @@ public class WebimDao {
 		e.setPic_url("https://1.gravatar.com/avatar/136e370cbf1cf500cbbf791e56dac614?d=https%3A%2F%2Fidenticons.github.com%2F577292a0aa8cb84aa3e6f06fee6f711c.png&s=50");
 		buddies.add(e);
 		return buddies;
+	}
+
+	public List<WebimEndpoint> getBuddiesByIds(String[] ids) {
+		return new ArrayList<WebimEndpoint>();
+
+	}
+
+	public List<WebimNotification> getNotifications(long uid) {
+		return new ArrayList<WebimNotification>();
+	}
+
+	public List<WebimMenu> getMenuList(long uid) {
+		return new ArrayList<WebimMenu>();
 	}
 
 }

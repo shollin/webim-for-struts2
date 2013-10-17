@@ -76,4 +76,9 @@ public class WebimHistoryDao {
 		
 	}
 
+	public void offlineMessageToHistory(long uid) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

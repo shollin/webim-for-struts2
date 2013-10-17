@@ -37,7 +37,12 @@ public class BuddiesAction extends WebimAction {
 	}
 	
     public String execute() {
-    	buddies = WebimService.instance().getBuddiesByIds(this.ids.split(","));
+    	String ids1[] = this.ids.split(",");
+    	long id2[] = new long[ids1.length];
+    	for(int i = 0; i < ids1.length; i++) {
+    		id2[i] = Long.parseLong(ids1[i]);
+    	}
+    	buddies = WebimService.instance().getBuddiesByIds(id2);
     	return SUCCESS;
     }
 
@@ -50,3 +55,4 @@ public class BuddiesAction extends WebimAction {
 	}
     
 }
+

@@ -20,7 +20,6 @@
  */
 package webim.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import webim.WebimClient;
@@ -36,9 +35,10 @@ import webim.dao.WebimHistoryDao;
 import webim.dao.WebimSettingDao;
 
 /**
- * @doc WebimService封装Webim Actions与Webim Dao之间依赖调用。 
+ * WebimService封装Webim Actions与Webim Dao之间依赖调用。 
  * 
  * @author Ery Lee <ery.lee at gamil.com>
+ * @since 1.0
  */
 public class WebimService {
 
@@ -55,7 +55,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 单例
+	 * 单例
 	 * 
 	 * @return WebimService单例
 	 */
@@ -67,7 +67,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 返回当前Webim用户的Uid，一般应从HTTP Session中读取。 
+	 * 返回当前Webim用户的Uid，一般应从HTTP Session中读取。 
 	 * 
 	 * @return 当前Webim用户的UID
 	 */
@@ -78,7 +78,7 @@ public class WebimService {
 
 
 	/**
-	 * @doc 返回当前的Webim端点(用户)
+	 * 返回当前的Webim端点(用户)
 	 * 
 	 * @return 当前Webim端点(用户)
 	 */
@@ -93,7 +93,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 返回当前的Webim客户端。
+	 * 返回当前的Webim客户端。
 	 * 
 	 * @param ticket 通信令牌
 	 * @return 当前用户的Webim客户端
@@ -106,7 +106,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 根据当前用户id，返回该用户好友，从WebimDao中读取。
+	 * 根据当前用户id，返回该用户好友，从WebimDao中读取。
 	 * 
 	 * @param uid 当前用户id
 	 * @return 该用户好友。
@@ -116,7 +116,7 @@ public class WebimService {
 	}
 	
 	/**
-	 * @doc 根据好友id列表读取好友列表。
+	 * 根据好友id列表读取好友列表。
 	 * 
 	 * @param ids 好友id列表
 	 * @return 好友列表
@@ -126,7 +126,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 根据当前用户id，返回用户所属群组，从WebimDao中读取
+	 * 根据当前用户id，返回用户所属群组，从WebimDao中读取
 	 * 
 	 * @param uid 当前用户id
 	 * @return 用户所属群组
@@ -136,7 +136,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 根据群组id，返回一个群组的详细信息。
+	 * 根据群组id，返回一个群组的详细信息。
 	 * 
 	 * @param gid 群组id
 	 * @return 群组详细
@@ -146,7 +146,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 根据用户uid，读取该用户离线消息
+	 * 根据用户uid，读取该用户离线消息
 	 * 
 	 * @param uid 用户uid
 	 * @return 离线消息
@@ -156,7 +156,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 清除用户的离线消息 
+	 * 清除用户的离线消息 
 	 * 
 	 * @param uid 用户uid
 	 */
@@ -165,7 +165,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 写入聊天纪录
+	 * 写入聊天纪录
 	 * 
 	 * @param uid 用户uid
 	 * @param offline 是否离线
@@ -186,7 +186,7 @@ public class WebimService {
 
 
 	/**
-	 * @doc 读取用户配置
+	 * 读取用户配置
 	 * 
 	 * @param uid 用户uid
 	 * @return 用户配置
@@ -196,7 +196,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 设置用户配置
+	 * 设置用户配置
 	 * 
 	 * @param uid 用户uid
 	 * @param data 配置数据,json格式
@@ -206,7 +206,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 读取当前用户与好友聊天纪录
+	 * 读取当前用户与好友聊天纪录
 	 * 
 	 * @param uid 用户uid
 	 * @param with 好友id(根据需要可转换为long) 
@@ -218,7 +218,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 清除与好友聊天记录
+	 * 清除与好友聊天记录
 	 * 
 	 * @param uid 用户uid
 	 * @param with 好友id
@@ -229,7 +229,7 @@ public class WebimService {
 
 
 	/**
-	 * @doc 读取当前用户通知
+	 * 读取当前用户通知
 	 * 
 	 * @param uid 用户uid
 	 * @return 通知列表
@@ -239,7 +239,7 @@ public class WebimService {
 	}
 
 	/**
-	 * @doc 读取当前用户菜单
+	 * 读取当前用户菜单
 	 * 
 	 * @param uid 用户uid
 	 * @return 用户菜单

@@ -24,7 +24,12 @@ import webim.WebimClient;
 import webim.WebimException;
 import webim.service.WebimService;
 
-
+/**
+ * Web«Î«Û/Webim/refresh.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class RefreshAction extends WebimAction {
 

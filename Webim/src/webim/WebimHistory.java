@@ -48,10 +48,10 @@ package webim;
 import java.util.Date;
 
 /**
- * @doc 写入数据库的消息历史信息
+ * Webim历史消息
  * 
  * @author Ery Lee <ery.lee @ gmail.com>
- *
+ * @since 1.0
  */
 public class WebimHistory {
 

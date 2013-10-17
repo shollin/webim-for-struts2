@@ -23,10 +23,10 @@ package webim;
 import java.util.Map;
 
 /**
- * @doc 即时消息
+ * Webim即时消息
  * 
  * @author Ery Lee <ery.lee @ gmail.com>
- *
+ * @since 1.0
  */
 public class WebimMessage {
 

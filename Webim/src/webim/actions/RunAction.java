@@ -22,6 +22,12 @@ package webim.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * Javascript«Î«Û/Webim/run.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class RunAction extends ActionSupport {
 

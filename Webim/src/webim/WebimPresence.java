@@ -23,9 +23,10 @@ package webim;
 import java.util.Map;
 
 /**
- * @doc 现场状态
+ * Webim现场状态
  * 
  * @author Ery Lee <ery.lee @ gmail.com>
+ * @since 1.0 
  */
 public class WebimPresence {
 

@@ -20,28 +20,33 @@
  */
 package webim.dao;
 
-/*
- * @doc webim_settings数据库表
+/**
+ * webim_settings数据库表<br>
  * 
+ * <pre>
  * CREATE TABLE webim_settings(
  *	    `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-	    `uid` mediumint(8) unsigned NOT NULL,
-	    `web` blob,
-	    `air` blob,
-	    `created_at` DATETIME DEFAULT NULL,
-	    `updated_at` DATETIME DEFAULT NULL,
-	    PRIMARY KEY (`id`)
-	)ENGINE=MyISAM;
-*/
-
+ *	    `uid` mediumint(8) unsigned NOT NULL,
+ *	    `web` blob,
+ *	    `air` blob,
+ *	    `created_at` DATETIME DEFAULT NULL,
+ *	    `updated_at` DATETIME DEFAULT NULL,
+ *	    PRIMARY KEY (`id`)
+ *	)ENGINE=MyISAM;
+ *	</pre>
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 public class WebimSettingDao {
 
 	/**
-	 * @doc 设置用户配置数据。<br>
+	 * 设置用户配置数据。<br>
 	 * 
-	 * 1. 数据库SQL脚本: "update webim_settings set data =@0  where uid = @1", uid, data
-	 * 2. 应该先读取配置检查是否存在，如不存在插入，存在更新。
-	 * 
+	 * <ol>
+	 * <li> 数据库SQL脚本: "update webim_settings set data =@0  where uid = @1", uid, data</li>
+	 * <li> 应该先读取配置检查是否存在，如不存在插入，存在更新。</li>
+	 * </ol>
 	 * @param uid 用户uid
 	 * @param data 配置数据，JSON格式
 	 */
@@ -50,10 +55,12 @@ public class WebimSettingDao {
 	}
 
 	/**
-	 * @doc 读取用户配置数据。<br>
+	 * 读取用户配置数据。<br>
 	 * 
-	 * 1. 数据库查询SQL脚本："select data from webim_settings where uid = ?", uid <br>
-	 * 2. 如果data为空，返回: "{}"
+	 * <ol>
+	 * <li>数据库查询SQL脚本："select data from webim_settings where uid = ?", uid </li>
+	 * <li> 如果data为空，返回: "{}"</li>
+	 * </ol>
 	 * 
 	 * @param uid 用户uid
 	 * @return 配置数据，JSON格式

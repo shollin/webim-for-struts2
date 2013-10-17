@@ -21,31 +21,32 @@
 package webim;
 
 /**
- * @doc 测试的配置文件，配置消息服务器的地址、端口、通信domain、apikey。<br>
- *      正式项目配置应写在XML文件或者数据库中。
+ * 测试的配置文件，配置消息服务器的地址、端口、通信domain、apikey。<br>
+ * 
+ * 正式项目配置应写在XML文件或者数据库中。
  *      
  * @author Ery Lee <ery.lee @ gmail.com>
- * 
+ * @since 1.0
  */
 public class WebimConfig {
 
     public static String VERSION = "1.0";
     /**
-     * @doc 站点域名
+     * 站点域名
      */
     public static String DOMAIN = "localhost";
     /**
-     * @doc 通信APIKEY
+     * 通信APIKEY
      */
     public static String APIKEY = "public";
     
     /**
-     * @doc 消息服务器地址
+     * 消息服务器地址
      */
     public static String HOST = "localhost";
     
     /**
-     * @doc 消息服务器端口
+     * 消息服务器端口
      */
     public static int PORT = 8000;
 

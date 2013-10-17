@@ -21,9 +21,10 @@
 package webim;
 
 /**
- * @doc 通知信息，前端定时轮询
+ * Webim通知信息，前端定时轮询
  * 
  * @author Ery Lee <ery.lee @ gmail.com>
+ * @since 1.0
  */
 public class WebimNotification {
 

@@ -24,6 +24,12 @@ import webim.WebimClient;
 import webim.WebimException;
 import webim.service.WebimService;
 
+/**
+ * Ajax«Î«Û/Webim/offline.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class OfflineAction extends WebimAction {
 

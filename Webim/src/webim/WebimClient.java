@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * @doc WebimClient是与消息服务器通信接口，采用JSON/HTTP协议设计，接口包括:<br>
+ * WebimClient是与消息服务器通信接口，采用JSON/HTTP协议设计，接口包括:<br>
  * <ul>
  * <li>online: 通知消息服务器用户上线</li>
  * <li>online: 通知消息服务器用户下线</li>
@@ -88,7 +88,7 @@ public class WebimClient {
 	private String ticket = "";
 
 	/**
-	 * @doc 创建Clieng实例
+	 * 创建Clieng实例
 	 * @param ep 当前端点
 	 * @param domain 域名
 	 * @param apikey APIKEY
@@ -104,7 +104,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 设置与消息服务器通信令牌
+	 * 设置与消息服务器通信令牌
 	 * 
 	 * @param ticket 通信令牌
 	 */
@@ -113,7 +113,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 通知消息服务器用户上线
+	 * 通知消息服务器用户上线
 	 * 
 	 * @param buddies 用户好友id列表
 	 * @param groups 用户群组id列表
@@ -144,7 +144,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 域名
+	 * 域名
 	 * 
 	 * @return Domain
 	 */
@@ -153,7 +153,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 端点
+	 * 端点
 	 * @return Endpoint
 	 */
 	public WebimEndpoint getEndpoint() {
@@ -161,7 +161,7 @@ public class WebimClient {
 	}
 	
 	/**
-	 * @doc 通知消息服务器下线
+	 * 通知消息服务器下线
 	 * 
 	 * @return JSONObject "{'status': 'ok'}" or "{'status': 'error', 'message': 'blabla'}"
 	 * @throws WebimException
@@ -181,7 +181,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 向消息服务器转发现场(Presence)
+	 * 向消息服务器转发现场(Presence)
 	 *  
 	 * @param presence 现场
 	 * @return JSONObject "{'status': 'ok'}" or "{'status': 'error', 'message': 'blabla'}"
@@ -203,7 +203,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 向消息服务器转发状态(Status)
+	 * 向消息服务器转发状态(Status)
 	 * 
 	 * @param status 状态
 	 * @return JSONObject "{'status': 'ok'}" or "{'status': 'error', 'message': 'blabla'}"
@@ -225,7 +225,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 向消息服务器转发聊天消息(Message)
+	 * 向消息服务器转发聊天消息(Message)
 	 * 
 	 * @param message 聊天消息
 	 * @return JSONObject "{'status': 'ok'}" or "{'status': 'error', 'message': 'blabla'}"
@@ -246,7 +246,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 向消息服务器请求群组在线成员信息
+	 * 向消息服务器请求群组在线成员信息
 	 * 
 	 * @param grpid 群组id
 	 * @return member 成员列表
@@ -267,7 +267,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 通知消息服务器用户加入群组
+	 * 通知消息服务器用户加入群组
 	 * 
 	 * @param grpid 群组id
 	 * @return JSONObject "{'id': grpid, 'count': '0'}"
@@ -293,7 +293,7 @@ public class WebimClient {
 	}
 
 	/**
-	 * @doc 通知消息服务器用户离开群组
+	 * 通知消息服务器用户离开群组
 	 * 
 	 * @param grpid 群组id
 	 * @return JSONObject "{'status': 'ok'}" or "{'status': 'error', 'message': 'blabla'}"

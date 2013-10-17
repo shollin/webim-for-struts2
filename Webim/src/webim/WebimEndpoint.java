@@ -22,50 +22,50 @@
 package webim;
 
 /**
- * @doc 路由端点(用户)。即时消息路由端点，标识一个用户、访客、服务。
+ * 路由端点(用户)。即时消息路由端点，标识一个用户、访客、服务。
  * 
  * @author Ery Lee <ery.lee at gmail.com>
- *
+ * @since 1.0
  */
 public class WebimEndpoint {
 
 	/**
-	 * @doc 端点标识，传递给消息服务器时，作为name(历史原因)
+	 * 端点标识，传递给消息服务器时，作为name(历史原因)
 	 */
 	private String id;
 
 	/**
-	 *@doc 端点(用户)昵称
+	 *端点(用户)昵称
 	 */
 	private String nick;
 	
 	/**
-	 * @doc 现场
+	 * 现场
 	 */
 	private String show = "available";
 	
 	/**
-	 * @doc 状态最近更新时间
+	 * 状态最近更新时间
 	 */
 	private String status_time = "";
 	
 	/**
-	 * @doc 端点(用户)主页
+	 * 端点(用户)主页
 	 */
 	private String url = "";
 	
 	/**
-	 * @doc 端点(用户)图片
+	 * 端点(用户)图片
 	 */
 	private String pic_url = "";
 	
 	/**
-	 * @doc 端点状态
+	 * 端点状态
 	 */
 	private String status = "Online";
 
 	/**
-	 * @doc 创建端点对象
+	 * 创建端点对象
 	 * @param id 端点标识(用户名)
 	 * @param nick 端点昵称(用户昵称)
 	 */
@@ -81,7 +81,7 @@ public class WebimEndpoint {
     }
 
 	/**
-	 * @doc 读取端点标识，id或name
+	 * 读取端点标识，id或name
 	 * @return id 端点标识
 	 */
 	public String getId() {
@@ -90,7 +90,7 @@ public class WebimEndpoint {
 
 	
 	/**
-	 * @doc 设置端点
+	 * 设置端点
 	 * @param id
 	 */
 	public void setId(String id) {
@@ -98,7 +98,7 @@ public class WebimEndpoint {
 	}
 
 	/**
-	 * @doc 读取现场
+	 * 读取现场
 	 * @return 现场状态
 	 */
 	public String getShow() {
@@ -106,7 +106,7 @@ public class WebimEndpoint {
 	}
 
 	/**
-	 * @doc 设置现场
+	 * 设置现场
 	 * 
 	 * @param show
 	 */

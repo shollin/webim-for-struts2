@@ -20,40 +20,46 @@
  */
 package webim;
 
+/**
+ * Webim群组对象
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0 
+ */
 public class WebimGroup {
 
 	/**
-	 * @doc 群组id
+	 * 群组id
 	 */
 	private String id;
 	
 	/**
-	 * @doc 群组昵称
+	 * 群组昵称
 	 */
 	private String nick;
 	
 	/**
-	 * @doc 群组首页
+	 * 群组首页
 	 */
 	private String url = "";
 	
 	/**
-	 * @doc 在线成员统计
+	 * 在线成员统计
 	 */
 	private int count = 0;
 	
 	/**
-	 * @doc 全部成员统计
+	 * 全部成员统计
 	 */
 	private int all_count = 0;
 	
 	/**
-	 * @doc 群组图片
+	 * 群组图片
 	 */
 	private String pic_url = "";
 
 	/**
-	 * @doc 创建群组实例
+	 * 创建群组实例
 	 * 
 	 * @param id 群组id
 	 * @param nick 群组昵称

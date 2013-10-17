@@ -23,9 +23,10 @@ package webim;
 import java.util.Map;
 
 /**
- * @doc 用户状态，比如"正在输入..."
+ * Webim用户状态，比如"正在输入..."
  * 
  * @author Ery Lee <ery.lee @ gmail.com>
+ * @since 1.0 
  */
 public class WebimStatus {
 

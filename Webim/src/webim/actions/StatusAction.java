@@ -25,7 +25,12 @@ import webim.WebimException;
 import webim.WebimStatus;
 import webim.service.WebimService;
 
-
+/**
+ * AJAX«Î«Û/Webim/status.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class StatusAction extends WebimAction {
 

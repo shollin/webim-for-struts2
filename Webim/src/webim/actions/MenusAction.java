@@ -27,6 +27,13 @@ import webim.service.WebimService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * Ajax«Î«Û/Webim/menus.do¥¶¿Ì°£
+ * 
+ * @deprecated
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class MenusAction extends ActionSupport {
 

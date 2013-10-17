@@ -25,6 +25,13 @@ import java.util.List;
 
 import webim.WebimNotification;
 
+
+/**
+ * Ajax«Î«Û/Webim/notifications.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class NotificationsAction extends WebimAction {
 

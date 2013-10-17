@@ -26,8 +26,9 @@ import java.util.List;
 import webim.WebimHistory;
 
 /**
- * @doc webim_histories数据库表，存储聊天记录。
+ * webim_histories数据库表，存储聊天记录。<br>
  *
+ * <pre>
  * CREATE TABLE webim_histories (
  *	    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
  *	    `send` tinyint(1) DEFAULT NULL,
@@ -50,11 +51,15 @@ import webim.WebimHistory;
  *	    KEY `from` (`from`),
  *	    KEY `send` (`send`)
  *	) ENGINE=MyISAM;
+ * </pre>
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
  */
 public class WebimHistoryDao {
 
 	/**
-	 * @doc 插入一条聊天记录，参考库表与WebimHistory字段。
+	 * 插入一条聊天记录，参考库表与WebimHistory字段。
 	 * 
 	 * @param history 聊天记录
 	 */
@@ -63,7 +68,7 @@ public class WebimHistoryDao {
 	}
 
 	/**
-	 * @doc 读取与with用户聊天记录，查询逻辑:<br>
+	 * 读取与with用户聊天记录，查询逻辑:<br>
 	 * <pre>
 	 *     if (type == "chat")
      *       {
@@ -95,7 +100,7 @@ public class WebimHistoryDao {
 
 
 	/**
-	 * @doc 清除与with用户聊天记录，SQL脚本:<br>
+	 * 清除与with用户聊天记录，SQL脚本:<br>
 	 * 
 	 *  "UPDATE webim_histories SET fromdel = 1 Where from = @0 and to = @1 and type = 'chat'"<br>
      *  "UPDATE webim_histories SET todel = 1 Where to = @0 and from = @1 and type = 'chat'"<br>
@@ -110,7 +115,7 @@ public class WebimHistoryDao {
 	}
 
 	/**
-	 * @doc 读取用户的离线消息，SQL脚本:<br>
+	 * 读取用户的离线消息，SQL脚本:<br>
 	 * 
 	 * "SELECT * FROM  webim_histories WHERE `to` = ? and send != 1 ORDER BY timestamp DESC LIMIT %d", limit;
 	 * 
@@ -124,7 +129,7 @@ public class WebimHistoryDao {
 
 
 	/**
-	 * @doc 离线消息转换为历史消息，SQL脚本:<br>
+	 * 离线消息转换为历史消息，SQL脚本:<br>
 	 * 
 	 * "UPDATE webim_histories SET send = 1 where to = ? and send = 0");
 	 * 

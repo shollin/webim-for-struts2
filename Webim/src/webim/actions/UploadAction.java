@@ -22,6 +22,12 @@ package webim.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 文件请求/Webim/upload.do处理。
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class UploadAction extends ActionSupport {
 

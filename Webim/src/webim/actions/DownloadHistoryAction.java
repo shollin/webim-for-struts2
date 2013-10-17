@@ -27,6 +27,13 @@ import webim.service.WebimService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+
+/**
+ * Web«Î«Û/Webim/downhistory.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class DownloadHistoryAction extends ActionSupport {
 

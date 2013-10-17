@@ -21,10 +21,10 @@
 package webim;
 
 /**
- * @doc Webim菜单条，显示在下面条幅右侧。
+ * Webim菜单条，显示在下面条幅右侧。
  * 
  * @author Ery Lee <ery.lee at gmail.com>
- *
+ * @since 1.0
  */
 public class WebimMenu {
 

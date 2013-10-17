@@ -24,6 +24,13 @@ import webim.WebimClient;
 import webim.WebimException;
 import webim.service.WebimService;
 
+/**
+ * Ajax«Î«Û/Webim/leave.do¥¶¿Ì°£
+ * 
+ * @deprecated
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class LeaveAction extends WebimAction {
 	

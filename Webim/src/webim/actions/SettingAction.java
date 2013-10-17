@@ -22,6 +22,12 @@ package webim.actions;
 
 import webim.service.WebimService;
 
+/**
+ * AJAX«Î«Û/Webim/setting.do¥¶¿Ì°£
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
+ * @since 1.0
+ */
 @SuppressWarnings("serial")
 public class SettingAction extends WebimAction {
 

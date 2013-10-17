@@ -77,6 +77,7 @@ public class WebimMessage {
 	public void feed(Map<String, String> data) {
 		data.put("to", to);
 		data.put("nick", nick);
+		data.put("type", type);
 		data.put("body", body);
 		data.put("style", style);
 		data.put("timestamp", String.valueOf(timestamp));

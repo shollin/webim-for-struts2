@@ -233,8 +233,6 @@ public class WebimClient {
 	 */
 	public JSONObject publish(WebimMessage message) throws WebimException {
 		Map<String, String> data = newData();
-		data.put("type", "chat"); //TODO: FIXLATER
-		data.put("nick", ep.getNick());
 		message.feed(data);
 		try {
 			String body = httpost("/messages", data);

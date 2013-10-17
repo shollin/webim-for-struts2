@@ -21,8 +21,10 @@
 package webim.dao;
 
 /*
-CREATE TABLE webim_settings(
-	    `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+ * @doc webim_settings数据库表
+ * 
+ * CREATE TABLE webim_settings(
+ *	    `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
 	    `uid` mediumint(8) unsigned NOT NULL,
 	    `web` blob,
 	    `air` blob,
@@ -34,12 +36,33 @@ CREATE TABLE webim_settings(
 
 public class WebimSettingDao {
 
+	/**
+	 * @doc 设置用户配置数据。<br>
+	 * 
+	 * 1. 数据库SQL脚本: "update webim_settings set data =@0  where uid = @1", uid, data
+	 * 2. 应该先读取配置检查是否存在，如不存在插入，存在更新。
+	 * 
+	 * @param uid 用户uid
+	 * @param data 配置数据，JSON格式
+	 */
 	public void set(long uid, String data) {
 		// TODO Auto-generated method stub
 	}
 
+	/**
+	 * @doc 读取用户配置数据。<br>
+	 * 
+	 * 1. 数据库查询SQL脚本："select data from webim_settings where uid = ?", uid <br>
+	 * 2. 如果data为空，返回: "{}"
+	 * 
+	 * @param uid 用户uid
+	 * @return 配置数据，JSON格式
+	 */
 	public String get(long uid) {
-		// TODO Auto-generated method stub
+		
+		/**
+		 * TODO: 
+		 */
 		return "{}";
 	}
 

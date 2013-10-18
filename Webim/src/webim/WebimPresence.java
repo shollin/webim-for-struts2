@@ -32,14 +32,18 @@ public class WebimPresence {
 
 	private String show;
 	
-	private String status;
+	private String status = "";
 
 	public WebimPresence() {
 	}
 	
+	public WebimPresence(String show) {
+		this.show = show;
+	}
+	
 	public WebimPresence(String show, String status) {
-		this.setShow(show);
-		this.setStatus(status);
+		this.show = show;
+		this.status = status;
 	}
 
 	public String getShow() {

@@ -35,12 +35,28 @@ import webim.service.WebimService;
 public class PresenceAction extends WebimAction {
 	
 	private String show;
-	private String status;
+	private String status = "";
 	
     public String execute() throws WebimException {
     	WebimClient c = WebimService.instance().currentClient(this.ticket);
         c.publish(new WebimPresence(show, status));
     	return SUCCESS;
     }
+
+	public String getShow() {
+		return show;
+	}
+
+	public void setShow(String show) {
+		this.show = show;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
     
 }

@@ -32,7 +32,6 @@ import webim.service.WebimService;
 /**
  * Ajax«Î«Û/Webim/join.do¥¶¿Ì°£
  * 
- * @deprecated
  * @author Ery Lee <ery.lee at gmail.com>
  * @since 1.0
  */
@@ -41,15 +40,18 @@ public class JoinAction extends WebimAction {
 
 	private String id;
 	
-	//TODO: FIXME
-	private Map<String, Integer> rooms[];
+	private String nick = "";
+	
+	private Map<String, Object> data;
 
 	public String execute() throws Exception {
 		WebimClient c = WebimService.instance().currentClient(this.ticket);
-		Map<String, Integer> data = new HashMap<String, Integer>();
+		data = new HashMap<String, Object>();
 		JSONObject o = c.join(id);
-		data.put(id, o.getInt(id));
-		rooms[0] = data;
+		data.put("id", this.id);
+		data.put("nick", this.nick);
+		data.put("temprory", true);
+		data.put("count", o.getInt("count"));
 		return SUCCESS;
 	}
 
@@ -59,6 +61,14 @@ public class JoinAction extends WebimAction {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
 }

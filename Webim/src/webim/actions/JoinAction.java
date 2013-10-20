@@ -20,14 +20,11 @@
  */
 package webim.actions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.json.JSONObject;
 
 import webim.WebimClient;
+import webim.WebimGroup;
 import webim.service.WebimService;
-
 
 /**
  * Ajax«Î«Û/Webim/join.do¥¶¿Ì°£
@@ -42,16 +39,19 @@ public class JoinAction extends WebimAction {
 	
 	private String nick = "";
 	
-	private Map<String, Object> data;
+	private WebimGroup data = null;
 
 	public String execute() throws Exception {
 		WebimClient c = WebimService.instance().currentClient(this.ticket);
-		data = new HashMap<String, Object>();
-		JSONObject o = c.join(id);
-		data.put("id", this.id);
-		data.put("nick", this.nick);
-		data.put("temprory", true);
-		data.put("count", o.getInt("count"));
+		data = WebimService.instance().getGroup(id);
+		if(data == null) {
+			data = new WebimGroup(id, nick);
+			data.setTemporary(true);
+			JSONObject o = c.join(id);
+			data.setCount(o.getInt("count"));
+			//TODO: FIXME Later
+			data.setPic_url("/Webim/static/images/chat.png");
+		}
 		return SUCCESS;
 	}
 
@@ -71,4 +71,13 @@ public class JoinAction extends WebimAction {
 		this.nick = nick;
 	}
 
+	public void setData(WebimGroup g) {
+		data = g;
+	}
+	
+	public WebimGroup getData() {
+		return data;
+	}
+
 }
+

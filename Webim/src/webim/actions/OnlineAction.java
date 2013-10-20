@@ -75,6 +75,7 @@ public class OnlineAction extends ActionSupport {
     	 long uid = WebimService.instance().currentUid();
          List<WebimEndpoint> buddies = WebimService.instance().getBuddies(uid);
          List<WebimGroup> groups = WebimService.instance().getGroups(uid);
+         groups.addAll(WebimService.instance().getTmpGroups(uid));
          //Forward Online to IM Server
          WebimClient client = WebimService.instance().currentClient("");
          List<String> buddyIds = buddyIds(buddies);

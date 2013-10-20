@@ -20,7 +20,11 @@
  */
 package webim.service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import webim.WebimClient;
 import webim.WebimConfig;
@@ -136,13 +140,37 @@ public class WebimService {
 	}
 
 	/**
+	 * 根据当前用户uid，获取临时讨论组。
+	 * 
+	 * @param uid 用户uid
+	 * @return 临时讨论组
+	 */
+	public List<WebimGroup> getTmpGroups(long uid) {
+		List<WebimGroup> groups = new ArrayList<WebimGroup>();
+		String json  = settingDao.get(uid);
+		JSONObject obj = new JSONObject(json);
+		if(obj.has("temporary_rooms")) {
+			JSONArray array = obj.getJSONArray("temporary_rooms");
+			for(int i = 0; i < array.length(); i++) {
+				JSONObject o = array.getJSONObject(i);
+				WebimGroup g = new WebimGroup(o.getString("id"), o.getString("nick"));
+				g.setTemporary(true);
+				//FIXME Later
+				g.setPic_url("/Webim/static/images/chat.png");
+				groups.add(g);
+			}
+		}
+		return groups;
+	}
+
+	/**
 	 * 根据群组id，返回一个群组的详细信息。
 	 * 
-	 * @param gid 群组id
+	 * @param id 群组id
 	 * @return 群组详细
 	 */
-	public WebimGroup GetGroup(long gid) {
-		return webimDao.getGroup(gid);
+	public WebimGroup getGroup(String id) {
+		return webimDao.getGroup(id);
 	}
 
 	/**
@@ -226,7 +254,6 @@ public class WebimService {
 	public void clearHistories(long uid, String with) {
 		historyDao.clearHistories(uid, with);
 	}
-
 
 	/**
 	 * 读取当前用户通知

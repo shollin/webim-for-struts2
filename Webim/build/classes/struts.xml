@@ -82,7 +82,9 @@
         </action>
         <action name="join"
         	class="webim.actions.JoinAction">
-        	<result name="success">OK.jsp</result>
+        	<result name="success" type="json">
+        		<param name="root">data</param>
+        	</result>
         </action>
 		<action name="leave"
 			class="webim.actions.LeaveAction">

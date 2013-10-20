@@ -20,6 +20,9 @@
  */
 package webim.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * webim_settings数据库表<br>
  * 
@@ -40,6 +43,8 @@ package webim.dao;
  */
 public class WebimSettingDao {
 
+	public static Map<String, String> settings = new HashMap<String, String>();
+	
 	/**
 	 * 设置用户配置数据。<br>
 	 * 
@@ -52,6 +57,7 @@ public class WebimSettingDao {
 	 */
 	public void set(long uid, String data) {
 		// TODO Auto-generated method stub
+		WebimSettingDao.settings.put(String.valueOf(uid), data);
 	}
 
 	/**
@@ -66,11 +72,15 @@ public class WebimSettingDao {
 	 * @return 配置数据，JSON格式
 	 */
 	public String get(long uid) {
-		
 		/**
 		 * TODO: 
 		 */
-		return "{}";
+		String json = WebimSettingDao.settings.get(String.valueOf(uid));
+		if(json == null) {
+			json = "{}";
+		}
+		return json;
 	}
 
 }
+

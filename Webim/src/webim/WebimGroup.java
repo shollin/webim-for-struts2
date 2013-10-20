@@ -51,13 +51,18 @@ public class WebimGroup {
 	/**
 	 * 全部成员统计
 	 */
-	private int all_count = 0;
+	//private int all_count = 0;
 	
 	/**
 	 * 群组图片
 	 */
 	private String pic_url = "";
 
+	/**
+	 * 是否临时讨论组
+	 */
+	private boolean temporary = false;
+	
 	/**
 	 * 创建群组实例
 	 * 
@@ -130,18 +135,18 @@ public class WebimGroup {
 	 * 群组在线成员统计
 	 * @return 在线成员统计
 	 */
-	public int getAll_count() {
-		return all_count;
-	}
+	//public int getAll_count() {
+	//	return all_count;
+	//}
 
 	/**
 	 * 设置群组在线成员统计
 	 * 
 	 * @param all_count 在线成员统计
 	 */
-	public void setAll_count(int all_count) {
-		this.all_count = all_count;
-	}
+	//public void setAll_count(int all_count) {
+	//	this.all_count = all_count;
+	//}
 
 	/**
 	 * 群组图片
@@ -160,11 +165,17 @@ public class WebimGroup {
 	public void setPic_url(String pic_url) {
 		this.pic_url = pic_url;
 	}
-	
+
+	public boolean isTemporary() {
+		return temporary;
+	}
+
+	public void setTemporary(boolean temporary) {
+		this.temporary = temporary;
+	}
+
 	public String toString() {
 		return String.format("Group(id=%s, nick=%s, count=%d", id, nick, count);
 	}
 
 }
-
-

@@ -47,8 +47,9 @@ public class MessageAction extends WebimAction {
 				System.currentTimeMillis() / 1000.0);
 		msg.setType(this.type);
 		c.publish(msg);
-		WebimService.instance().insertHistory(uid, offline, msg);
-
+		if(body != null && !body.startsWith("webim-event:")) {
+			WebimService.instance().insertHistory(uid, offline, msg);
+		}
 		return SUCCESS;
 	}
 

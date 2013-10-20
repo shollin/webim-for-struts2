@@ -89,13 +89,13 @@ public class WebimDao {
 	/**
 	 * 读取群组对象信息
 	 * 
-	 * @param gid 群组id
+	 * @param id 群组id
 	 * @return 群组对象
 	 */
-	public WebimGroup getGroup(long gid) {
+	public WebimGroup getGroup(String id) {
 		// TODO Auto-generated method stub
 		// TODO: 示例代码，需要替换
-		return new WebimGroup("1", "group1");
+		return null; //new WebimGroup("1", "group1");
 	}
 
 	/**

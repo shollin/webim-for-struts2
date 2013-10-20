@@ -2133,8 +2133,8 @@ model("history", {
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Wed Oct 9 23:41:39 2013 +0800
- * Commit: 376150f5a06eee170cddf6d90b4639792d0d3d7a
+ * Date: Thu Oct 17 15:29:09 2013 +0800
+ * Commit: db27d4ecf8841f71e0dcbc45f005b25b1448a138
  */
 (function(window,document,undefined){
 
@@ -2581,60 +2581,81 @@ function upload( element, callback ){
 
 
 var sound = (function(){
-        var playSound = true;
-        var play = function(url){
-            try {
-                document.getElementById('webim-flashlib').playSound(url ? url : '/sound/sound.mp3');
-            } 
-            catch (e){
-            }
-        };
-        var _urls = {
-                lib: "sound.swf",
-                msg:"sound/msg.mp3"
-        };
-        return {
-                enable:function(){
-                        playSound = true;
-                },
-                disable:function(){
-                        playSound = false;
-                },
-                init: function(urls){
-                        extend(_urls, urls);
-			/*
-                        swfobject.embedSWF(_urls.lib + "?_" + new Date().getTime(), "webim-flashlib-c", "100", "100", "9.0.0", null, null, {
-                        allowscriptaccess:'always'
-                        }, {
-                            id: 'webim-flashlib'
-                        });
-			*/
-			var lib_url = _urls.lib + "?_" + new Date().getTime();
-			if (navigator.plugins && navigator.mimeTypes && navigator.mimeTypes.length) { // netscape plugin architecture
-				var html = '<embed type="application/x-shockwave-flash" width="10" height="10" id="webim-flashlib" allowscriptaccess="always" src="'+lib_url+'" />';
-			}else{
-				var html = '<object width="10" height="10" id="webim-flashlib" type="application/x-shockwave-flash" data="'+ lib_url + '">\
-				<param name="allowScriptAccess" value="always" />\
-				<param name="movie" value="'+lib_url+'" />\
-				<param name="scale" value="noscale" />\
-				</object>';
+	var playSound = true;
+	var webimAudio;
+	var play = function(url){
+		if( window.Audio ) {
+			if( !webimAudio ) {
+				var webimAudio = new Audio();
 			}
+			webimAudio.src = url;
+			webimAudio.play();
+		}else if(navigator.userAgent.indexOf('MSIE') >= 0){
 			try {
-				document.getElementById('webim-flashlib-c').innerHTML = html;
+				document.getElementById('webim-bgsound').src = url ? url : '/sound/sound.mp3';
 			} 
 			catch (e){
 			}
+		}
+		/*
+		 try {
+		 document.getElementById('webim-flashlib').playSound(url ? url : '/sound/sound.mp3');
+		 } 
+		 catch (e){
+		 }
+		 */
+	};
+	var _urls = {
+		lib: "sound.swf",
+		msg:"sound/msg.mp3"
+	};
+	return {
+		enable:function(){
+			playSound = true;
 		},
-                play: function(type){
-                        var url = isUrl(type) ? type : _urls[type];
-                        playSound && play(url);
-                }
-        }
+		disable:function(){
+			playSound = false;
+		},
+		init: function(urls){
+			extend(_urls, urls);
+			if(!window.Audio && navigator.userAgent.indexOf('MSIE') >= 0){
+				document.getElementById('webim-flashlib-c').innerHTML = '<bgsound id="webim-bgsound" src="#" loop="1">';
+			}
+			/*
+			 swfobject.embedSWF(_urls.lib + "?_" + new Date().getTime(), "webim-flashlib-c", "100", "100", "9.0.0", null, null, {
+			 allowscriptaccess:'always'
+			 }, {
+			 id: 'webim-flashlib'
+			 });
+			 */
+			/*
+			 var lib_url = _urls.lib + "?_" + new Date().getTime();
+			 if (navigator.plugins && navigator.mimeTypes && navigator.mimeTypes.length) { // netscape plugin architecture
+			 var html = '<embed type="application/x-shockwave-flash" width="10" height="10" id="webim-flashlib" allowscriptaccess="always" src="'+lib_url+'" />';
+			 }else{
+			 var html = '<object width="10" height="10" id="webim-flashlib" type="application/x-shockwave-flash" data="'+ lib_url + '">\
+			 <param name="allowScriptAccess" value="always" />\
+			 <param name="movie" value="'+lib_url+'" />\
+			 <param name="scale" value="noscale" />\
+			 </object>';
+			 }
+			 try {
+			 document.getElementById('webim-flashlib-c').innerHTML = html;
+			 } 
+			 catch (e){
+			 }
+			 */
+		},
+		play: function(type){
+			var url = isUrl(type) ? type : _urls[type];
+			playSound && play(url);
+		}
+	}
 })();
 
 /*
-* set display frequency.
-*/
+ * set display frequency.
+ */
 var titleShow = (function(){
 	var _showNoti = false;
 	addEvent(window,"focus",function(){
@@ -3503,7 +3524,18 @@ widget("layout",{
 		var w = (windowWidth() - 45) - $.shortcut.offsetWidth - $.widgets.offsetWidth - 70;
 		self.maxVisibleTabs = parseInt(w / self.tabWidth);
 		self._fitUI();
+		self._autoResizeWindow();
 		self._ready = true;
+	},
+	_autoResizeWindow: function(){
+		var self = this, $ = self.$
+		  , width = $.widgets.offsetWidth;
+		for( var key in self.widgets ) {
+			var window = self.widgets[key] && self.widgets[key].window;
+			window = window && window.$ && window.$.window;
+			if( window )
+				window.style.width = width + "px";
+		}
 	},
 	_updatePrevCount: function(activeId){
 		var self = this, tabIds = self.tabIds, max = self.maxVisibleTabs, len = tabIds.length, id = activeId, count = self.prevCount;
@@ -5912,6 +5944,7 @@ widget("chatlink",
 
 		function parse_id(link, re){
 			if(!link)return false;
+			if(!re)return false;
 			var re_len = re.length; 
 			for(var i = 0; i < re_len; i++){
 				var ex = re[i].exec(link);
@@ -5967,7 +6000,7 @@ widget("chatlink",
 		var self = this, list = self.list, anthors = self.anthors, l = data.length, i, da, uid, li, anthor;
 		for(i = 0; i < l; i++){
 			da = data[i];
-			if(da.id && (uid = da.uid) && (li = list[uid])){
+			if(da.id && (uid = da.uid || da.id) && (li = list[uid])){
 				anthor = anthors[uid];
 				if(!li.elements && anthor){
 					li.elements = [];
@@ -5990,7 +6023,7 @@ widget("chatlink",
 		var self = this, list = self.list, anthors = self.anthors, l = data.length, i, da, uid, li, anthor;
 		for(i = 0; i < l; i++){
 			da = data[i];
-			if(da.id && (uid = da.uid) && (li = list[uid])){
+			if(da.id && (uid = da.uid || da.id) && (li = list[uid])){
 				li.elements && each(li.elements, function(n, v){
 					remove(v);
 				});

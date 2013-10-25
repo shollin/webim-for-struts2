@@ -1,6 +1,6 @@
 //custom
 (function(webim){
-	
+
 	var path = _IMC.path;
 	webim.extend(webim.setting.defaults.data, _IMC.setting );
 
@@ -55,8 +55,6 @@
 	ui.addApp("setting", {"data": webim.setting.defaults.data});
 	ui.render();
 	_IMC['is_login'] && im.autoOnline() && im.online();
-	
+
 })(webim);
-
-
 

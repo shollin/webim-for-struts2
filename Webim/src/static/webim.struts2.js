@@ -2133,8 +2133,8 @@ model("history", {
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Thu Oct 17 15:29:09 2013 +0800
- * Commit: db27d4ecf8841f71e0dcbc45f005b25b1448a138
+ * Date: Fri Oct 25 20:34:08 2013 +0800
+ * Commit: 69dfdc407405c61e3a157f6265c3f545ce8bd1bb
  */
 (function(window,document,undefined){
 

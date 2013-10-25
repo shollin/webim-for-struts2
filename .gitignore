@@ -2,3 +2,5 @@
 .metadata
 RemoteSystemsTempFiles
 Servers
+*.swp
+*.swo

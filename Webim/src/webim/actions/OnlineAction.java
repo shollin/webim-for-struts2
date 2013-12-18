@@ -21,6 +21,7 @@
 package webim.actions;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import webim.WebimClient;
+import webim.WebimConfig;
 import webim.WebimEndpoint;
 import webim.WebimGroup;
 import webim.service.WebimService;
@@ -98,12 +100,22 @@ public class OnlineAction extends ActionSupport {
              {
                  buddyMap.put(e.getId(), e);
              }
-             List<WebimEndpoint> onlines = new ArrayList<WebimEndpoint>();
+
              JSONArray a = json.getJSONArray("buddies");
              for(int i = 0; i < a.length(); i ++) {
                  JSONObject o = a.getJSONObject(i);
                  String n = o.getString("name");
-                 onlines.add(buddyMap.get(n));
+                 buddyMap.get(n).setShow("available");
+             }
+
+             Collection<WebimEndpoint> rtBuddies;
+             if(WebimConfig.SHOW_UNAVAILABLE) {
+            	 rtBuddies = buddyMap.values();
+             } else {
+            	 rtBuddies = new ArrayList<WebimEndpoint>();
+            	 for(WebimEndpoint e : buddyMap.values()) {
+            		 if(e.getShow() == "available") rtBuddies.add(e);
+            	 }
              }
              
              //Groups with count
@@ -136,7 +148,7 @@ public class OnlineAction extends ActionSupport {
 
              data.put("success", true);
              data.put("connection", conn);
-             data.put("buddies", onlines.toArray());
+             data.put("buddies", rtBuddies.toArray());
              data.put("groups", groups1.toArray());
              data.put("rooms", groups1.toArray());
              data.put("server_time", System.currentTimeMillis() /1000.0);

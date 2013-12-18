@@ -42,7 +42,7 @@ public class WebimEndpoint {
 	/**
 	 * 现场
 	 */
-	private String show = "available";
+	private String show = "unavailable";
 	
 	/**
 	 * 状态最近更新时间
@@ -62,7 +62,7 @@ public class WebimEndpoint {
 	/**
 	 * 端点状态
 	 */
-	private String status = "Online";
+	private String status = "Offline";
 
 	/**
 	 * 创建端点对象
@@ -73,8 +73,6 @@ public class WebimEndpoint {
     {
         this.setId(id);
         this.setNick(nick);
-        this.setShow("available");
-        this.setStatus("Online");
         this.setStatus_time("");
         this.setUrl("");
         this.setPic_url("");

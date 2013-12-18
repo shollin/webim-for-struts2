@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/javascript"
     pageEncoding="UTF8"%>
+ <%@ taglib prefix="s" uri="/struts-tags"%>
     
     var _IMC = {
 	            production_name: 'struts2',
@@ -9,12 +10,15 @@
 	            user: '',
 	            setting: '{}',
 	            menu: '',
-	            disable_chatlink: '',
-	            enable_shortcut: '',
-	            disable_menu: 'true',
-	            theme: 'base',
-	            local: 'zh-CN',
-                aspx: false,
+	            enable_chatlink: <s:property value="enable_chatlink" />,
+	            enable_shortcut: <s:property value="enable_shortcut" />,
+	            enable_menu: <s:property value="enable_menu" />,
+	            enable_room: <s:property value="enable_room" />,
+	            enable_noti: <s:property value="enable_noti" />,
+	            theme: '<s:property value="theme" />',
+	            local: '<s:property value="local" />',
+	            opacity: <s:property value="opacity" />,
+	            show_unavailable: <s:property value="show_unavailable" />,
 	            min: window.location.href.indexOf("webim_debug") != -1 ? "" : ".min"
             };
             

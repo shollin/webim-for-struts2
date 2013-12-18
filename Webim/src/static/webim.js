@@ -1,6 +1,6 @@
 //custom
 (function(webim){
-	
+
 	var path = _IMC.path;
 	webim.extend(webim.setting.defaults.data, _IMC.setting );
 
@@ -46,17 +46,15 @@
 	if( _IMC.enable_shortcut ) ui.layout.addShortcut( _IMC.menu );
 
 	ui.addApp("buddy", {
-		showUnavailable: _IMC.showUnavailable,
+		showUnavailable: _IMC.show_unavailable,
 		is_login: _IMC['is_login'],
 		loginOptions: _IMC['login_options']
 	} );
-	ui.addApp("room");
-	ui.addApp("notification");
+	if( _IMC.enable_room) ui.addApp("room");
+	if( _IMC.enable_noti) ui.addApp("notification");
 	ui.addApp("setting", {"data": webim.setting.defaults.data});
 	ui.render();
 	_IMC['is_login'] && im.autoOnline() && im.online();
-	
+
 })(webim);
-
-
 

@@ -20,6 +20,8 @@
  */
 package webim.actions;
 
+import webim.WebimConfig;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -31,8 +33,20 @@ import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
 public class RunAction extends ActionSupport {
 
-    public String execute() {
-    	return SUCCESS;
-    }
-    
+	public String theme = WebimConfig.THEME;
+	public String local = WebimConfig.LOCAL;
+	public String emot = WebimConfig.EMOT;
+	public int opacity = WebimConfig.OPACITY;
+	public boolean enable_room = WebimConfig.ENABLE_ROOM;
+	public boolean enable_noti = WebimConfig.ENABALE_NOTI;
+	public boolean enable_chatlink = WebimConfig.ENABLE_CHATLINK;
+	public boolean enable_shortcut = WebimConfig.ENABLE_SHORTCUT;
+	public boolean enable_menu = WebimConfig.ENABLE_MENU;
+	public boolean show_unavailable = WebimConfig.SHOW_UNAVAILABLE;
+	public boolean visitor = WebimConfig.VISITOR;
+
+	public String execute() {
+		return SUCCESS;
+	}
+
 }

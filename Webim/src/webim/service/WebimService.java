@@ -149,7 +149,7 @@ public class WebimService {
 	 * @param uid
 	 *            用户uid
 	 * @return 临时讨论组
-	 * @throws JSONException 
+	 * @throws JSONException
 	 */
 	public List<WebimGroup> getTmpGroups(long uid) throws JSONException {
 		List<WebimGroup> groups = new ArrayList<WebimGroup>();
@@ -297,4 +297,22 @@ public class WebimService {
 		return webimDao.getMenuList(uid);
 	}
 
+	/**
+	 * 创建临时群组
+	 * 
+	 * @param id
+	 *            群组id
+	 * @param nick
+	 *            群组昵称
+	 * @return WebimGroup 群组对象
+	 */
+	public WebimGroup newTmpGroup(String id, String nick) {
+		WebimGroup group = new WebimGroup(id, nick);
+		group.setTemporary(true);
+		//TODO: FIXME Later
+		group.setPic_url("/Webim/static/images/chat.png");
+		return group;
+	}
+
 }
+

@@ -45,13 +45,10 @@ public class JoinAction extends WebimAction {
 		WebimClient c = WebimService.instance().currentClient(this.ticket);
 		data = WebimService.instance().getGroup(id);
 		if(data == null) {
-			data = new WebimGroup(id, nick);
-			data.setTemporary(true);
-			JSONObject o = c.join(id);
-			data.setCount(o.getInt("count"));
-			//TODO: FIXME Later
-			data.setPic_url("/Webim/static/images/chat.png");
+			data = WebimService.instance().newTmpGroup(id, nick);
 		}
+		JSONObject o = c.join(id);
+		data.setCount(o.getInt(id));
 		return SUCCESS;
 	}
 

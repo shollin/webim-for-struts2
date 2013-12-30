@@ -23,6 +23,7 @@ package webim.struts2.actions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -101,13 +102,13 @@ public class OnlineAction extends ActionSupport {
                  buddyMap.put(e.getId(), e);
              }
 
-             JSONArray a = json.getJSONArray("buddies");
-             for(int i = 0; i < a.length(); i ++) {
-                 JSONObject o = a.getJSONObject(i);
-                 String n = o.getString("name");
-                 buddyMap.get(n).setShow("available");
+             JSONObject bObj = json.getJSONObject("buddies");
+             Iterator<String> it = bObj.keys();
+             while (it.hasNext()) {
+            	 String key = it.next();
+            	 String show = bObj.getString(key);
+            	 buddyMap.get(key).setShow(show);
              }
-
              Collection<WebimEndpoint> rtBuddies;
              if(WebimConfig.SHOW_UNAVAILABLE) {
             	 rtBuddies = buddyMap.values();
@@ -125,12 +126,12 @@ public class OnlineAction extends ActionSupport {
                  groupMap.put(g.getId(), g);
              }
              List<WebimGroup> groups1 = new ArrayList<WebimGroup>();
-             a = json.getJSONArray("groups");
-             for(int i = 0; i < a.length(); i++) {
-                 JSONObject o = (JSONObject)a.getJSONObject(i);
-                 String gid = o.getString("name");
+             JSONObject gObj = json.getJSONObject("groups");
+             it = gObj.keys();
+             while(it.hasNext()) {
+                 String gid = it.next();
                  WebimGroup group = groupMap.get(gid);
-                 group.setCount(o.getInt("total"));
+                 group.setCount(gObj.getInt(gid));
                  groups1.add(group);
              }
 

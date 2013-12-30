@@ -5,7 +5,7 @@
 <title>Webim Java Demo</title>
 </head>
 <body>
-    <h2> Webim for Java Struts2! </h2>
-	<script type="text/javascript" src="/Webim/run.do"></script>
+    <h2> Webim5.2 for Java Struts2! </h2>
+	<script type="text/javascript" src="/Webim/boot.do"></script>
 </body>
 </html>

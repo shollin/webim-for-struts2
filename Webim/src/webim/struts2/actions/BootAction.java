@@ -25,13 +25,13 @@ import webim.config.WebimConfig;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * Javascript嵌入脚本: /Webim/run.do
+ * Javascript嵌入脚本: /Webim/boot.do
  * 
  * @author Ery Lee <ery.lee at gmail.com>
  * @since 1.0
  */
 @SuppressWarnings("serial")
-public class RunAction extends ActionSupport {
+public class BootAction extends ActionSupport {
 
 	public String theme = WebimConfig.THEME;
 	public String local = WebimConfig.LOCAL;

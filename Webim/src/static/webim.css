@@ -1,12 +1,12 @@
 /*!
- * Webim UI v3.0.1
+ * Webim UI v5.1 
  * http://www.webim20.cn/
  *
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Fri Oct 25 20:34:08 2013 +0800
- * Commit: 69dfdc407405c61e3a157f6265c3f545ce8bd1bb
+ * Date: Fri Dec 20 15:54:21 2013 +0800
+ * Commit: 874feb8af9ee874df878f9a9617a43f1b7ef864f
  */
 
 body {
@@ -104,7 +104,7 @@ a .webim-icon, a .ui-icon{
 
 
 /*
- * jQuery UI CSS Framework 3.0.1
+ * jQuery UI CSS Framework 5.1 
  *
  * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT or GPL Version 2 licenses.
@@ -513,7 +513,7 @@ a .webim-icon, a .ui-icon{
 
 
 .webim-layout .webim-buddy-window .webim-window-tab{
-        width: 12em;
+        width: 13.6em;
 }
 .webim-layout .webim-buddy-window .webim-window-tab h4{
 		margin-right: 0;
@@ -942,6 +942,12 @@ a .webim-icon, a .ui-icon{
         position: fixed;
 }
 
+#webim-buddy .webim-buddy-unavailable img{
+	filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	-webkit-filter: grayscale(100%);
+}
+
+
 /*
  * widget setting
  */
@@ -1282,6 +1288,9 @@ a .webim-icon, a .ui-icon{
 	*display:inline-block;
 }
 
+.webim-chatlink-offline{
+	background-image:url(images/chat_offline.gif);
+}
 .webim-notification {
         padding:1em .5em;
         overflow-x: hidden;

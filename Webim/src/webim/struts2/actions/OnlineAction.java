@@ -33,6 +33,7 @@ import org.json.JSONObject;
 import webim.WebimClient;
 import webim.config.WebimConfig;
 import webim.WebimEndpoint;
+import webim.WebimException;
 import webim.WebimGroup;
 import webim.service.WebimService;
 
@@ -155,8 +156,9 @@ public class OnlineAction extends ActionSupport {
              data.put("server_time", System.currentTimeMillis() /1000.0);
              data.put("user", client.getEndpoint());
          }
-         catch (Exception e)
+         catch (WebimException e)
          {
+        	 e.printStackTrace();
              data.put("success", false);
              data.put("error_msg", "IM Server is not found");
          }

@@ -43,7 +43,7 @@ public class RunAction extends ActionSupport {
 	public boolean enable_shortcut = WebimConfig.ENABLE_SHORTCUT;
 	public boolean enable_menu = WebimConfig.ENABLE_MENU;
 	public boolean show_unavailable = WebimConfig.SHOW_UNAVAILABLE;
-	public boolean visitor = WebimConfig.VISITOR;
+	public boolean visitor = WebimConfig.ENABLE_VISITOR;
 
 	public String execute() {
 		return SUCCESS;

@@ -21,95 +21,103 @@
 package webim.config;
 
 /**
- * ���Ե������ļ���������Ϣ�������ĵ�ַ���˿ڡ�ͨ��domain��apikey��<br>
+ * 测试的配置文件，配置消息服务器的地址、端口、通信domain、apikey。<br>
  * 
- * ��ʽ��Ŀ����Ӧд��XML�ļ�������ݿ��С�
- *      
- * @author Ery Lee <ery.lee @ gmail.com>
+ * TODO: 正式项目配置应写在XML文件或者数据库中。
+ * 
+ * @author Ery Lee <ery.lee at gmail.com>
  * @since 1.0
  */
 public class WebimConfig {
 
+	/**
+	 * Webim库版本
+	 */
+	public static final String VERSION = "5.2";
 
 	/**
-	 * �Ƿ���
+	 * 是否开启
 	 */
-	public static boolean ISOPEN = true;
+	public static final boolean ISOPEN = true;
+
+	/**
+	 * 站点域名
+	 */
+	public static final String DOMAIN = "localhost";
+
+	/**
+	 * 通信APIKEY
+	 */
+	public static final String APIKEY = "public";
+
+	/**
+	 * 消息服务器地址
+	 */
+	public static final String HOST = "nextalk.im";
+
+	/**
+	 * 消息服务器端口
+	 */
+	public static final int PORT = 8000;
+
+	/**
+	 * 界面Theme
+	 */
+	public static final String THEME = "base";
+
+	/**
+	 * 本地语言
+	 */
+	public static final String LOCAL = "zh-CN";
+
+	/**
+	 * 表情库
+	 */
+	public static final String EMOT = "default";
+
+	/**
+	 * 工具条透明度
+	 */
+	public static final int OPACITY = 80;
+
+	/**
+	 * 群组聊天
+	 */
+	public static final boolean ENABLE_ROOM = true;
+
+	/**
+	 * 显示通知按钮
+	 */
+	public static final boolean ENABALE_NOTI = true;
+
+	/**
+	 * 支持快捷工具栏
+	 */
+	public static final boolean ENABLE_SHORTCUT = false;
+
+	/**
+	 * 支持聊天链接
+	 */
+	public static final boolean ENABLE_CHATLINK = false;
+
+	/**
+	 * 显示菜单栏
+	 */
+	public static final boolean ENABLE_MENU = false;
+
+	/**
+	 * 显示不在线好友
+	 */
+	public static final boolean SHOW_UNAVAILABLE = true;
+
+	/**
+	 * 支持访客
+	 */
+	public static final boolean ENABLE_VISITOR = true;
+
+	/**
+	 * 支持文件上传
+	 */
+	public static final boolean ENABLE_UPLOAD = false;
 	
-	
-    public static String VERSION = "5.2";
-    /**
-     * վ������
-     */
-    public static String DOMAIN = "localhost";
-    /**
-     * ͨ��APIKEY
-     */
-    public static String APIKEY = "public";
-    
-    /**
-     * ��Ϣ��������ַ
-     */
-    public static String HOST = "nextalk.im";
-    
-    /**
-     * ��Ϣ�������˿�
-     */
-    public static int PORT = 8000;
-
-    /**
-     * ����Theme
-     */
-    public static String THEME = "base";
-    
-    /**
-     * ��������
-     */
-    public static String LOCAL = "zh-CN";
-    
-    /**
-     * �����
-     */
-    public static String EMOT = "default";
-
-    /**
-     * ������͸����
-     */
-    public static int OPACITY = 80;
-    
-    /**
-     * Ⱥ������
-     */
-    public static boolean ENABLE_ROOM = true;
-
-    /**
-     * ��ʾ֪ͨ��ť
-     */
-    public static boolean ENABALE_NOTI = true;
-
-    /**
-     * ֧�ֿ�ݹ�����
-     */
-    public static boolean ENABLE_SHORTCUT = false;
-    
-    /**
-     * ֧����������
-     */
-	public static boolean ENABLE_CHATLINK = false;
-    
-    /**
-     * ��ʾ�˵���
-     */
-    public static boolean ENABLE_MENU = false;
-    
-    /**
-     * ��ʾ�����ߺ���
-     */
-    public static boolean SHOW_UNAVAILABLE = true;
-    
-    /**
-     * ֧�ַÿ�
-     */
-    public static boolean VISITOR = true;
 }
-

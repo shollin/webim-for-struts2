@@ -85,6 +85,6 @@ Insert Webim Javascript
 
 Insert Javascript code below to web pages that need to display Webim:
 
-	<script type="text/javascript" src="/Webim/run.do"></script>
+	<script type="text/javascript" src="/Webim/boot.do"></script>
 
 

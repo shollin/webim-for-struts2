@@ -4,15 +4,15 @@ CHANGELOG
 v5.2 (2013/12/31)
 -------------------
 
-* 版本号与与消息服务器和Webim-java同步
-* Webim通用代码正式打包为weibm-5.2.jar
-* JSON库代码正式删除，引入org.json-date.jar
+* 版本号与与消息服务器、java库(webim-java)同步
+* Webim通用代码正式打包为WEB-INF/lib/webim-5.2.jar
+* JSON库代码正式删除，引入WEB-INF/lib/org.json-20120521.jar
 * webim.actions包重命名为webim.struts2.actions
-* struts.xml对应action重新配置
+* struts.xml重新配置action
 * Index.jsp嵌入javascript地址更新为"/Webim/boot.do"
-* WebimClient.online接口, OnlineAction更新
-* WebimClient.join接口, JoinAction更新
-* WebimClient.members接口, MemberAction更新
+* WebimClient.online接口、OnlineAction更新
+* WebimClient.join接口、 JoinAction更新
+* WebimClient.members接口、 MemberAction更新
 * WebimService新增newTmpGroup接口
 * WebimConfig放入webim.config包
 * WebimConfig新增ENABLE_UPLOAD配置

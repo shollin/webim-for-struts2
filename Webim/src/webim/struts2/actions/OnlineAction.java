@@ -153,7 +153,7 @@ public class OnlineAction extends ActionSupport {
              data.put("buddies", rtBuddies.toArray());
              data.put("groups", groups1.toArray());
              data.put("rooms", groups1.toArray());
-             data.put("server_time", System.currentTimeMillis() /1000.0);
+             data.put("server_time", System.currentTimeMillis()); //TODO: 1000.0
              data.put("user", client.getEndpoint());
          }
          catch (WebimException e)

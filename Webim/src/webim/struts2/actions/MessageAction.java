@@ -41,10 +41,11 @@ public class MessageAction extends WebimAction {
 	private String style = "";
 
 	public String execute() throws WebimException {
+		//request.setCharacterEncoding("UTF-8");
 		long uid = WebimService.instance().currentUid();
 		WebimClient c = WebimService.instance().currentClient(this.ticket);
 		WebimMessage msg = new WebimMessage(this.to, c.getEndpoint().getNick(), this.body, this.style,
-				System.currentTimeMillis() / 1000.0);
+				System.currentTimeMillis()); //TODO: 1000.0
 		msg.setType(this.type);
 		c.publish(msg);
 		if(body != null && !body.startsWith("webim-event:")) {

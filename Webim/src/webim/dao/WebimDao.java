@@ -35,9 +35,10 @@ import webim.WebimNotification;
  * @since 1.0
  */
 public class WebimDao {
-
-	public WebimDao() {}
-
+	
+	public WebimDao() {
+	}
+	
 	/**
 	 * 读取用户的好友列表。数据库中读取信息转换为WebimEndpoint对象。
 	 * 

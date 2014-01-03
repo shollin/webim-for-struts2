@@ -76,7 +76,7 @@
         		<param name="root">histories</param>
         	</result>
         </action>
-        <action name="clearhistory"
+        <action name="clear_history"
         	class="webim.struts2.actions.ClearHistoryAction">
         	<result name="success">OK.jsp</result>	
         </action>

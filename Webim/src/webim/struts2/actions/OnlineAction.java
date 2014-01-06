@@ -108,7 +108,9 @@ public class OnlineAction extends ActionSupport {
              while (it.hasNext()) {
             	 String key = it.next();
             	 String show = bObj.getString(key);
-            	 buddyMap.get(key).setShow(show);
+				 WebimEndpoint buddy = buddyMap.get(key);
+				 buddy.setPresence("online");
+            	 buddy.setShow(show);
              }
              Collection<WebimEndpoint> rtBuddies;
              if(WebimConfig.SHOW_UNAVAILABLE) {
@@ -148,6 +150,7 @@ public class OnlineAction extends ActionSupport {
              // "user":{"uid":"1","id":"admin","nick":"admin","pic_url":"pickurl","show":"available","url":"home.php?mod=space&uid=1","status":""},
              // "new_messages":[]}
 
+			 data.put("new_messages", new ArrayList());
              data.put("success", true);
              data.put("connection", conn);
              data.put("buddies", rtBuddies.toArray());

@@ -23,7 +23,7 @@ package webim.struts2.actions;
 import java.util.ArrayList;
 import java.util.List;
 
-import webim.WebimNotification;
+import webim.client.WebimNotification;
 
 
 /**

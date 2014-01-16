@@ -22,8 +22,8 @@ package webim.struts2.actions;
 
 import org.json.JSONObject;
 
-import webim.WebimClient;
-import webim.WebimGroup;
+import webim.client.WebimClient;
+import webim.client.WebimGroup;
 import webim.service.WebimService;
 
 /**

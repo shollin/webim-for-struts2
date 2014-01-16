@@ -30,11 +30,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import webim.WebimClient;
+import webim.client.WebimClient;
 import webim.config.WebimConfig;
-import webim.WebimEndpoint;
-import webim.WebimException;
-import webim.WebimGroup;
+import webim.client.WebimEndpoint;
+import webim.client.WebimException;
+import webim.client.WebimGroup;
 import webim.service.WebimService;
 
 import com.opensymphony.xwork2.ActionSupport;

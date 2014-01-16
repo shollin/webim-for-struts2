@@ -20,9 +20,9 @@
  */
 package webim.struts2.actions;
 
-import webim.WebimClient;
-import webim.WebimException;
-import webim.WebimMessage;
+import webim.client.WebimClient;
+import webim.client.WebimException;
+import webim.client.WebimMessage;
 import webim.service.WebimService;
 
 /**

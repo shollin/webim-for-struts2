@@ -22,7 +22,7 @@ package webim.struts2.actions;
 
 import java.util.List;
 
-import webim.WebimEndpoint;
+import webim.client.WebimEndpoint;
 import webim.service.WebimService;
 
 /**

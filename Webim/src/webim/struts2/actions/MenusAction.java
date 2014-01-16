@@ -22,7 +22,7 @@ package webim.struts2.actions;
 
 import java.util.List;
 
-import webim.WebimMenu;
+import webim.client.WebimMenu;
 import webim.service.WebimService;
 
 import com.opensymphony.xwork2.ActionSupport;

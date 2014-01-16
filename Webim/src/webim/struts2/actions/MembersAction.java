@@ -28,7 +28,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import webim.WebimClient;
+import webim.client.WebimClient;
 import webim.service.WebimService;
 
 import com.opensymphony.xwork2.ActionSupport;

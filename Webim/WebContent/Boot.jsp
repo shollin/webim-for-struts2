@@ -7,6 +7,7 @@
 	            version: '1.0',
 	            path: '/Webim/',
 	            is_login: true,
+                is_visitor: false,
 	            user: '',
 	            setting: '{}',
 	            menu: '',

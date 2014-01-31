@@ -28,10 +28,9 @@ import java.util.Map;
  * 
  * <pre>
  * CREATE TABLE webim_settings(
- *     `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
- *     `uid` mediumint(8) unsigned NOT NULL,
- *     `web` blob,
- *     `air` blob,
+ *     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+ *     `uid` int(11) unsigned NOT NULL,
+ *     `data` text,
  *     `created_at` DATETIME DEFAULT NULL,
  *     `updated_at` DATETIME DEFAULT NULL,
  *     PRIMARY KEY (`id`)

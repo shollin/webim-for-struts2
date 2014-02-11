@@ -2,6 +2,9 @@
 (function(webim) {
 	var path = _IMC.path;
 	webim.extend(webim.setting.defaults.data, _IMC.setting);
+	if( _IMC.is_visitor ) {
+		webim.status.defaults.key = "_webim_v";
+	}
 
 	webim.route( {
 		online: path + "online.do",

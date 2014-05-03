@@ -23,23 +23,6 @@ package webim.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * webim_settings数据库表<br>
- * 
- * <pre>
- * CREATE TABLE webim_settings(
- *     `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
- *     `uid` mediumint(8) unsigned NOT NULL,
- *     `data` blob,
- *     `created_at` DATETIME DEFAULT NULL,
- *     `updated_at` DATETIME DEFAULT NULL,
- *     PRIMARY KEY (`id`)
- * )ENGINE=MyISAM;
- * </pre>
- * 
- * @author Ery Lee <ery.lee at gmail.com>
- * @since 1.0
- */
 public class WebimSettingDao {
 
 	public static Map<String, String> settings = new HashMap<String, String>();

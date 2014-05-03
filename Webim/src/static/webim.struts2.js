@@ -1,8 +1,10 @@
 //custom
-(function(webim){
-
+(function(webim) {
 	var path = _IMC.path;
-	webim.extend(webim.setting.defaults.data, _IMC.setting );
+	webim.extend(webim.setting.defaults.data, _IMC.setting);
+	if( _IMC.is_visitor ) {
+		webim.status.defaults.key = "_webim_v";
+	}
 
 	webim.route( {
 		online: path + "online.do",
@@ -34,7 +36,9 @@
 		},
 		soundUrls: soundUrls,
 		buddyChatOptions: {
-			upload: _IMC.upload
+            downloadHistory: !_IMC.is_visitor,
+			simple: _IMC.is_visitor,
+			upload: _IMC.upload && !_IMC.is_visitor
 		},
 		roomChatOptions: {
 			upload: _IMC.upload
@@ -48,13 +52,18 @@
 	ui.addApp("buddy", {
 		showUnavailable: _IMC.show_unavailable,
 		is_login: _IMC['is_login'],
+		disable_login: true,
+		collapse: false,
+		disable_user: _IMC.is_visitor,
+        simple: _IMC.is_visitor,
 		loginOptions: _IMC['login_options']
-	} );
-	if( _IMC.enable_room) ui.addApp("room");
-	if( _IMC.enable_noti) ui.addApp("notification");
-	ui.addApp("setting", {"data": webim.setting.defaults.data});
+	});
+    if(!_IMC.is_visitor) {
+        if( _IMC.enable_room) ui.addApp("room");
+        if( _IMC.enable_noti) ui.addApp("notification");
+        ui.addApp("setting", {"data": webim.setting.defaults.data});
+    }
+    ui.addApp("setting", {"data": webim.setting.defaults.data});
 	ui.render();
 	_IMC['is_login'] && im.autoOnline() && im.online();
-
 })(webim);
-

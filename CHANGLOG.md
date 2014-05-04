@@ -1,6 +1,15 @@
 CHANGELOG
 ==============================
 
+v5.4.1 (2014/05/03)
+-------------------
+
+* static前端界面升级到5.4
+* webim.client库升级到5.4 
+* online, join, leave, members接口修改
+* block, unblock接口增加
+* WebimModel, WebimPlugin重构
+
 v5.2.1 (2014/01/03)
 -------------------
 

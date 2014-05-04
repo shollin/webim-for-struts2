@@ -18,60 +18,39 @@ Developer Guide
 Create Database
 ---------------
 
-1. Create webim_histories table:
+import install.sql
 
- CREATE TABLE webim_histories (
-	    `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-	    `send` tinyint(1) DEFAULT NULL,
-	    `type` varchar(20) DEFAULT NULL,
-	    `to` varchar(50) NOT NULL,
-	    `from` varchar(50) NOT NULL,
-	    `nick` varchar(20) DEFAULT NULL COMMENT 'from nick',
-	    `body` text,
-	    `style` varchar(150) DEFAULT NULL,
-	    `timestamp` double DEFAULT NULL,
-	    `todel` tinyint(1) NOT NULL DEFAULT '0',
-	    `fromdel` tinyint(1) NOT NULL DEFAULT '0',
-	    `created_at` date DEFAULT NULL,
-	    `updated_at` date DEFAULT NULL,
-	    PRIMARY KEY (`id`),
-	    KEY `todel` (`todel`),
-	    KEY `fromdel` (`fromdel`),
-	    KEY `timestamp` (`timestamp`),
-	    KEY `to` (`to`),
-	    KEY `from` (`from`),
-	    KEY `send` (`send`)
-	) ENGINE=MyISAM;
+Coding WebimPlugin.java
+-----------------------
 
-2. Create webim_settings table:
+implements these methods:
 
-  CREATE TABLE webim_settings(
- 	    `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-	    `uid` mediumint(8) unsigned NOT NULL,
-	    `data` text,
-	    `created_at` DATETIME DEFAULT NULL,
-	    `updated_at` DATETIME DEFAULT NULL,
-	    PRIMARY KEY (`id`)
-	)ENGINE=MyISAM;
+```java
 
-Coding Dao
-----------
+1.  public WebimEndpoint endpoint();
 
-1. WebimHistoryDao.java
+2.  public List<WebimEndpoint> buddies(String uid);
 
-2. WebimSettingDao.java
+3.  List<WebimEndpoint> buddiesByIds(String uid, String[] ids);
 
-3. WebimDao.java
+4.  public WebimRoom findRoom(String roomId);
 
+5.  public List<WebimRoom> rooms(String uid);
 
-Coding Service
---------------
+6.  public List<WebimRoom> roomsByIds(String uid, String[] ids);
 
-WebimService.java, modify these methods:
+8.  public List<WebimMember> members(String roomId);
 
-1. public long currentUid(): should return current login uid
+9.  public List<WebimNotification> notifications(String uid);
 
-2. public WebimEndpoint currentEndpoint(): should return current endpoint
+```
+
+Coding WebimModel.java
+-----------------------
+
+1. Histories
+
+2. Settings
 
 
 Coding Config
@@ -79,11 +58,15 @@ Coding Config
 
 You should change the WebimConfig.java, and load configurations from database or xml.
 
-Insert Webim Javascript
+Webim Javascript
 -----------------------
 
 Insert Javascript code below to web pages that need to display Webim:
 
+```javascript
+
 	<script type="text/javascript" src="/Webim/boot.do"></script>
+
+```
 
 

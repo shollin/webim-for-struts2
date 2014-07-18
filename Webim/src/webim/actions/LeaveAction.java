@@ -37,6 +37,7 @@ public class LeaveAction extends WebimAction {
 
 	public String execute() throws WebimException {
 		WebimEndpoint endpoint = currentEndpoint();
+        model.leaveRoom(id, endpoint.getId());
 		WebimClient c = client(endpoint);
 		c.leave(id);
 		return SUCCESS;

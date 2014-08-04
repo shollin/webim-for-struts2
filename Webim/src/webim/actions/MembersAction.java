@@ -39,8 +39,6 @@ public class MembersAction extends WebimAction {
 
 	private String id;
 
-	private String ticket;
-
 	private List<WebimMember> members;
 
 	public String getId() {
@@ -49,14 +47,6 @@ public class MembersAction extends WebimAction {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(String ticket) {
-		this.ticket = ticket;
 	}
 
 	public List<WebimMember> getMembers() {

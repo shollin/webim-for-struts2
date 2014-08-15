@@ -79,8 +79,8 @@ CREATE TABLE webim_visitors (
       UNIQUE KEY `webim_visitor_name` (`name`)
 )ENGINE=MyISAM AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_buddies`;
-CREATE TABLE `webim_buddies` (
+DROP TABLE IF EXISTS webim_buddies;
+CREATE TABLE webim_buddies (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `uid` varchar(40) DEFAULT NULL,
       `fid` varchar(40) DEFAULT NULL,
@@ -89,8 +89,8 @@ CREATE TABLE `webim_buddies` (
       PRIMARY KEY (`id`)
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_asks`;
-CREATE TABLE `webim_asks` (
+DROP TABLE IF EXISTS webim_asks;
+CREATE TABLE webim_asks (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `from_id` varchar(60) NOT NULL DEFAULT '',
       `from_nick` varchar(100) DEFAULT NULL,

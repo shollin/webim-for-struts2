@@ -1,7 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
-<title>WebIM for Struts2</title>
+	<meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>WebIM for Struts2</title>
 </head>
 <body>
     <h2> WebIM5.5 for Java Struts2 </h2>

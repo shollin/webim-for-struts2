@@ -14,6 +14,7 @@
 		online: path + "online.do",
 		offline: path + "offline.do",
 		buddies: path + "buddies.do",
+		remove_buddy: path + "remove_buddy.do",
 		deactivate: path + "refresh.do",
 		message: path + "message.do",
 		presence: path + "presence.do",

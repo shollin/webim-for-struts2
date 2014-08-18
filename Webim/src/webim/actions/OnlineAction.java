@@ -109,9 +109,12 @@ public class OnlineAction extends WebimAction {
 						rtBuddies.add(e);
 				}
 			}
+            List<WebimHistory> offlineHistories = this.model.offlineHistories(uid, 100);
+            this.model.offlineHistoriesReaded(uid);
 			data.remove("presences");
 			data.put("buddies", rtBuddies.toArray());
 			data.put("rooms", rooms.toArray());
+            data.put("new_messages", offlineHistories.toArray());
 			data.put("server_time", System.currentTimeMillis()); // TODO: /
 																	// 1000.0
 			data.put("user", client.getEndpoint());

@@ -111,7 +111,7 @@ public class OnlineAction extends WebimAction {
 			}
             List<WebimHistory> offlineHistories = this.model.offlineHistories(uid, 100);
             this.model.offlineHistoriesReaded(uid);
-			data.remove("presences");
+			//data.remove("presences");
 			data.put("buddies", rtBuddies.toArray());
 			data.put("rooms", rooms.toArray());
             data.put("new_messages", offlineHistories.toArray());
@@ -119,6 +119,7 @@ public class OnlineAction extends WebimAction {
 																	// 1000.0
 			data.put("user", client.getEndpoint());
 		} catch (Exception e) {
+            data = new HashMap<String, Object>();
 			data.put("success", false);
 			data.put("error_msg", e.getMessage());
 		}

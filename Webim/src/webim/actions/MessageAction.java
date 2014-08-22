@@ -20,6 +20,8 @@
  */
 package webim.actions;
 
+import org.apache.struts2.ServletActionContext;
+
 import webim.client.WebimClient;
 import webim.client.WebimEndpoint;
 import webim.client.WebimException;
@@ -81,6 +83,7 @@ public class MessageAction extends WebimAction {
 	}
 
 	public String execute() throws WebimException {
+        //HttpServletRequest request = ServletActionContext.getRequest();
 		//request.setCharacterEncoding("UTF-8");
 		WebimEndpoint endpoint = currentEndpoint();
 		WebimClient c = client(endpoint);

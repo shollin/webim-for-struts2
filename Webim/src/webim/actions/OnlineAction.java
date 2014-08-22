@@ -29,6 +29,7 @@ import java.util.Map;
 
 import webim.client.WebimClient;
 import webim.client.WebimEndpoint;
+import webim.client.WebimHistory;
 import webim.client.WebimRoom;
 
 /**

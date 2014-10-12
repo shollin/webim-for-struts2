@@ -21,10 +21,13 @@
 package webim.actions;
 
 import webim.WebimConfig;
-import webim.WebimModel;
-import webim.WebimPlugin;
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
+import webim.client.WebimCluster;
+import webim.model.WebimEndpoint;
+import webim.service.WebimHashCluster;
+import webim.service.WebimModel;
+import webim.service.WebimPlugin;
+import webim.service.WebimVisitorManager;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -42,13 +45,19 @@ public class WebimAction extends ActionSupport {
 	protected WebimModel model = null;
 
 	protected WebimPlugin plugin = null;
+	
+	protected WebimCluster cluster = null;
+	
+	protected WebimVisitorManager visitorManager = null;
 
 	protected String ticket = "";
 
 	public WebimAction() {
 		this.config = new WebimConfig();
 		this.model = new WebimModel();
-		this.plugin = new WebimPlugin();
+		this.cluster = new WebimHashCluster(config);
+		this.plugin = new WebimPlugin(config);
+		this.visitorManager = new WebimVisitorManager(model);
 	}
 
 	public String getTicket() {
@@ -74,8 +83,7 @@ public class WebimAction extends ActionSupport {
 		WebimClient client = new WebimClient(endpoint,
 				(String) this.config.get("domain"),
 				(String) this.config.get("apikey"),
-				(String) this.config.get("host"),
-				((Integer) this.config.get("port")).intValue());
+				cluster);
 		client.setTicket(ticket);
 		return client;
 	}

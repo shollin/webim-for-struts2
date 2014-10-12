@@ -22,8 +22,8 @@ package webim.actions;
 
 import java.util.List;
 
-import webim.client.WebimEndpoint;
-import webim.client.WebimNotification;
+import webim.model.WebimEndpoint;
+import webim.model.WebimNotification;
 
 
 /**

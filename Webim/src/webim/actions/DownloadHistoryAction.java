@@ -22,8 +22,8 @@ package webim.actions;
 
 import java.util.List;
 
-import webim.client.WebimEndpoint;
-import webim.client.WebimHistory;
+import webim.model.WebimEndpoint;
+import webim.model.WebimHistory;
 
 /**
  * 下载历史记录: /Webim/downhistory.do

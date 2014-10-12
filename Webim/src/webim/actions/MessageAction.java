@@ -20,12 +20,13 @@
  */
 package webim.actions;
 
-import org.apache.struts2.ServletActionContext;
+import java.util.HashMap;
+import java.util.Map;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
-import webim.client.WebimMessage;
+import webim.model.WebimEndpoint;
+import webim.model.WebimMessage;
 
 /**
  * 发送即时消息: /Webim/messsage.do
@@ -41,6 +42,9 @@ public class MessageAction extends WebimAction {
 	private String to;
 	private String body;
 	private String style = "";
+
+	//return data
+	private Map<String, String> data;
 
 	public String getType() {
 		return type;
@@ -81,20 +85,50 @@ public class MessageAction extends WebimAction {
 	public void setStyle(String style) {
 		this.style = style;
 	}
+	
+	public Map<String, String> getData() {
+		return data;
+	}
+
+	public void setData(Map<String, String> data) {
+		this.data = data;
+	}
 
 	public String execute() throws WebimException {
         //HttpServletRequest request = ServletActionContext.getRequest();
 		//request.setCharacterEncoding("UTF-8");
-		WebimEndpoint endpoint = currentEndpoint();
-		WebimClient c = client(endpoint);
-		WebimMessage msg = new WebimMessage(to, endpoint.getNick(), body,
-				style, System.currentTimeMillis());
-		msg.setType(type);
-		msg.setOffline("true".equals(offline) ? true : false);
-		c.publish(msg);
-		if (body != null && !body.startsWith("webim-event:")) {
-			model.insertHistory(endpoint.getId(), msg);
+        data = new HashMap<String, String>();
+        WebimEndpoint endpoint = currentEndpoint();
+		if (!plugin.checkCensor(body)) {
+			data.put("status", "error");
+			data.put("message", "您发送消息有敏感词");
+			return SUCCESS;
 		}
+		if (plugin.isRobotSupport() && plugin.isFromRobot(to)) {
+			WebimClient c = this.client(endpoint);
+			c.setTicket(null);
+
+			WebimMessage requestMsg = new WebimMessage(to, c.getEndpoint()
+					.getNick(), body, style, System.currentTimeMillis());
+			this.model.insertHistory(endpoint.getId(), requestMsg);
+
+			String answer = plugin.getRobot().answer(body);
+			WebimMessage answermsg = new WebimMessage(endpoint.getId(), plugin.getRobot()
+					.getNick(), answer, "", System.currentTimeMillis());
+			c.push(to, answermsg);
+			this.model.insertHistory(to, answermsg);
+		} else {
+            WebimClient c = client(endpoint);
+            WebimMessage msg = new WebimMessage(to, endpoint.getNick(), body,
+                    style, System.currentTimeMillis());
+            msg.setType(type);
+            msg.setOffline("true".equals(offline) ? true : false);
+            c.publish(msg);
+            if (body != null && !body.startsWith("webim-event:")) {
+                model.insertHistory(endpoint.getId(), msg);
+            }
+        }
+        data.put("status", "ok");
 		return SUCCESS;
 	}
 

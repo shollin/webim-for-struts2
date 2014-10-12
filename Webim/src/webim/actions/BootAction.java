@@ -33,17 +33,32 @@ import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
 public class BootAction extends ActionSupport {
 
-	public String theme = WebimConfig.THEME;
-	public String local = WebimConfig.LOCAL;
-	public String emot = WebimConfig.EMOT;
-	public int opacity = WebimConfig.OPACITY;
-	public boolean enable_room = WebimConfig.ENABLE_ROOM;
-	public boolean enable_noti = WebimConfig.ENABALE_NOTI;
-	public boolean enable_chatlink = WebimConfig.ENABLE_CHATLINK;
-	public boolean enable_shortcut = WebimConfig.ENABLE_SHORTCUT;
-	public boolean enable_menu = WebimConfig.ENABLE_MENU;
-	public boolean show_unavailable = WebimConfig.SHOW_UNAVAILABLE;
-	public boolean visitor = WebimConfig.ENABLE_VISITOR;
+	public String theme;
+	public String local;
+	public String emot;
+	public String opacity;
+	public boolean enable_room;
+	public boolean enable_noti;
+	public boolean enable_chatlink;
+	public boolean enable_shortcut;
+	public boolean enable_menu;
+	public boolean show_unavailable;
+	public boolean visitor;
+
+	public BootAction() {
+		WebimConfig config = new WebimConfig();
+		theme = (String) config.get("theme");
+		local = (String) config.get("local");
+		emot = (String) config.get("emot");
+		opacity = (String) config.get("opacity");
+		enable_room = config.getBoolean("enable_room");
+		enable_noti = config.getBoolean("enable_noti");
+		enable_chatlink = config.getBoolean("enable_chatlink");
+		enable_shortcut = config.getBoolean("enable_shortcut");
+		enable_menu = config.getBoolean("enable_menu");
+		show_unavailable = config.getBoolean("show_unavailable");
+		visitor = config.getBoolean("enable_visitor");
+	}
 
 	public String execute() {
 		return SUCCESS;

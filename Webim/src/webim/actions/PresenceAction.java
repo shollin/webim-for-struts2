@@ -21,9 +21,9 @@
 package webim.actions;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
-import webim.client.WebimPresence;
+import webim.model.WebimEndpoint;
+import webim.model.WebimPresence;
 
 /**
  * 现场变更: /Webim/presence.do

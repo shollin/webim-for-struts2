@@ -1,12 +1,15 @@
 package webim.actions;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
-import webim.client.WebimMessage;
-import webim.client.WebimRoom;
+import webim.model.WebimEndpoint;
+import webim.model.WebimMessage;
+import webim.model.WebimRoom;
 
 @SuppressWarnings("serial")
 public class InviteAction extends WebimAction {
@@ -26,7 +29,8 @@ public class InviteAction extends WebimAction {
 		}
 		model.joinRoom(roomId, uid, endpoint.getNick());
 		String[] memberIds = members.split(",");
-		List<WebimEndpoint> members = plugin.buddiesByIds(uid, memberIds);
+		Set<String> idSet = new HashSet<String>(Arrays.asList(memberIds));
+		List<WebimEndpoint> members = plugin.buddiesByIds(uid, idSet);
 		model.inviteRoom(roomId, members);
 
 		WebimClient c = client(endpoint);

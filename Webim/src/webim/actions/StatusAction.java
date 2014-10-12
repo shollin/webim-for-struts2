@@ -21,9 +21,9 @@
 package webim.actions;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
-import webim.client.WebimStatus;
+import webim.model.WebimEndpoint;
+import webim.model.WebimStatus;
 
 /**
  * 发送状态: /Webim/status.do

@@ -22,8 +22,8 @@ package webim.actions;
 
 import java.util.List;
 
-import webim.client.WebimEndpoint;
-import webim.client.WebimMenu;
+import webim.model.WebimEndpoint;
+import webim.model.WebimMenu;
 
 /**
  * 读取菜单: /Webim/menus.do

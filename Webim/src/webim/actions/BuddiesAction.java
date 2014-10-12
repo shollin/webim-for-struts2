@@ -20,9 +20,17 @@
  */
 package webim.actions;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import webim.client.WebimEndpoint;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import webim.client.WebimClient;
+import webim.client.WebimException;
+import webim.model.WebimEndpoint;
 
 /**
  * 读取好友列表: /Webim/buddies.do
@@ -41,9 +49,24 @@ public class BuddiesAction extends WebimAction {
 		return buddies;
 	}
 
-	public String execute() {
+	public String execute() throws WebimException, JSONException {
 		WebimEndpoint endpoint = currentEndpoint();
-		buddies = plugin.buddiesByIds(endpoint.getId(), this.ids.split(","));
+		Set<String> idSet = new HashSet<String>(Arrays.asList(this.ids.split(",")));
+		buddies = plugin.buddiesByIds(endpoint.getId(), idSet);
+		if (idSet.size() > 0) {
+			WebimClient c = client(endpoint);
+			JSONObject presences = c.presences(idSet);
+			for (WebimEndpoint buddy : buddies) {
+				String id = buddy.getId();
+				if (presences.has(id)) {
+					String show = presences.getString(id);
+					if (!"invisible".equals(show)) {
+						buddy.setPresence("online");
+						buddy.setShow(presences.getString(id));
+					}
+				}
+			}
+		}
 		return SUCCESS;
 	}
 

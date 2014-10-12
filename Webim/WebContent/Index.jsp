@@ -8,7 +8,7 @@
     <title>WebIM for Struts2</title>
 </head>
 <body>
-    <h2> WebIM5.5 for Java Struts2 </h2>
+    <h2> WebIM5.7 for Java Struts2 </h2>
 	<ul style="list-style: none outside none;">
 		<li><a class="webim-chatbtn" href="/chat/1">Chat with User1</a></li>
 		<li><a class="webim-chatbtn" href="/chat/2">Chat with User2</a></li>

@@ -5,8 +5,8 @@
  * Copyright (c) 2014 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Thu Jul 3 11:36:31 2014 +0800
- * Commit: 5a42251772f4a58f6a03b76864e18bf47acbe16a
+ * Date: Wed Sep 10 17:30:04 2014 +0800
+ * Commit: 5a22f8d1fa4a33ab8b17c7bcaccc4583377c71b6
  */
 (function(window, document, undefined){
 
@@ -1443,7 +1443,10 @@ extend(webim.prototype, {
 		});
 
 		self.bind("presence", function( e, data ) {
-			buddy.presence( map( grep( data, grepPresence ), mapFrom ) );
+            var pl = grep( data, grepPresence );
+			buddy.presence( map( pl, mapFrom ) );
+            //fix issue #35
+            presence.update(pl);
 			data = grep( data, grepRoomPresence );
 			for (var i = data.length - 1; i >= 0; i--) {
                 /*
@@ -1959,6 +1962,15 @@ model( "presence", {
         }
     },
 
+    update: function(list) {
+        var self = this, data = {};
+        for(var i = 0; i < list.length; i++) {
+            var p = list[i];
+            data[p.from] = p.show;
+        }
+        self.set(data);
+    },
+
     clear: function() {
         var self = this;
         self.data = [];      
@@ -2287,8 +2299,8 @@ model("history", {
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Wed Jul 9 15:54:06 2014 +0800
- * Commit: e4f868defefdbec63e265592b2a38d52c2e28332
+ * Date: Sun Oct 12 10:22:21 2014 +0800
+ * Commit: 1f9a91e0ee210d2c01193691041513c7ddb84beb
  */
 (function(window,document,undefined){
 
@@ -4231,7 +4243,14 @@ widget("history", {
 			markup.push(self._renderMsg(val));
 		}
 		//self.$.content.innerHTML += markup.join('');
-		self.$.content.appendChild( createElement( "<div>"+markup.join('')+"</div>" ) );
+		var el = createElement( "<div>"+markup.join('')+"</div>" );
+		var imgs = el.getElementsByTagName("img");
+		for (var i = 0, l = imgs.length; i < l; i++) {
+			addEvent(imgs[i], "load", function(){
+				self.trigger("update");
+			});
+		};
+		self.$.content.appendChild( el );
 		self.trigger("update");
 	},
 	notice: function( type, msg ) {
@@ -6606,7 +6625,7 @@ widget("chatbtn",
 			if(id && children(el).length == 0 && text && (elementId || className.test(el.className))){
 				anthors[id] ? anthors[id].push(el) :(anthors[id] = [el]);
 				list[id] = {id: id, name: text};
-				var icon = createElement('<i class="webim-chaticon"><em>');;
+				var icon = createElement('<i class="webim-chaticon"><em></em></i>');
 				el.appendChild( icon );
 				el.icon = icon;
 				el.title = i18n("offline");

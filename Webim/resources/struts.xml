@@ -29,7 +29,9 @@
 			<result name="success">OK.jsp</result>
 		</action>
 		<action name="message" class="webim.actions.MessageAction">
-			<result name="success">OK.jsp</result>
+			<result name="success" type="json">
+				<param name="root">data</param>
+			</result>
 		</action>
 		<action name="status" class="webim.actions.StatusAction">
 			<result name="success">OK.jsp</result>

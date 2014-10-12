@@ -20,7 +20,7 @@
  */
 package webim.actions;
 
-import webim.client.WebimEndpoint;
+import webim.model.WebimEndpoint;
 
 /**
  * 个人设置: /Webim/setting.do

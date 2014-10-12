@@ -21,8 +21,8 @@
 package webim.actions;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
+import webim.model.WebimEndpoint;
 
 /**
  * 离开群组: /Webim/leave.do

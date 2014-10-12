@@ -21,8 +21,8 @@
 package webim.actions;
 
 
-import webim.client.WebimEndpoint;
-import webim.client.WebimRoom;
+import webim.model.WebimEndpoint;
+import webim.model.WebimRoom;
 
 /**
  * 加入群组: /Webim/join.do

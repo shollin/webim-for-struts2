@@ -21,8 +21,8 @@
 package webim.actions;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
+import webim.model.WebimEndpoint;
 
 /**
  * Web页面刷新: /Webim/refresh.do

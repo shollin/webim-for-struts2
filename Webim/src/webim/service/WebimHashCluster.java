@@ -1,5 +1,5 @@
 /*
- * OfflineAction.java
+ * WebimHashCluster.java
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,26 +18,39 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package webim.actions;
+package webim.service;
 
-import webim.client.WebimClient;
-import webim.client.WebimException;
+import javax.annotation.Resource;
+
+import webim.WebimConfig;
+import webim.client.WebimCluster;
 import webim.model.WebimEndpoint;
 
 /**
- * 用户下线: /Webim/offline.do
+ * 默认基于用户id Hash方式集群
  * 
- * @author Ery Lee <ery.lee at gmail.com>
- * @since 1.0
+ * @author Feng Lee <feng.lee at nextalk.im>
+ *
  */
-@SuppressWarnings("serial")
-public class OfflineAction extends WebimAction {
+public class WebimHashCluster implements WebimCluster {
+	
+	@Resource(name="webimConfig")
+	private WebimConfig config; 
+	
+	private String[] servers = null;
+	
+	public WebimHashCluster(WebimConfig config) {
+		this.config = config;
+	}
 
-	public String execute() throws WebimException {
-		WebimEndpoint endpoint = currentEndpoint();
-		WebimClient c = client(endpoint);
-		c.offline();
-		return SUCCESS;
+	@Override
+	public String getServer(WebimEndpoint ep) {
+		int hash = ep.getId().hashCode();
+		if(servers == null) {
+			servers = ((String)config.get("server")).split(",");
+		}
+		int idx = (hash & 0x7FFFFFFF) % servers.length;
+		return servers[idx];
 	}
 
 }

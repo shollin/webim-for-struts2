@@ -4,7 +4,7 @@
     
     var _IMC = {
 	            product: 'struts2',
-	            version: '5.4.1',
+	            version: '5.7.1',
 	            path: '/Webim/',
 	            is_login: true,
                 is_visitor: false,

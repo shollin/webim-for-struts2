@@ -109,6 +109,7 @@ webim.ui.i18n.store('zh-TW',{
 	"cancel": "\u53d6\u6d88",
 	"invite": "\u9080\u8bf7",
 	"visitor":"\u8a2a\u5ba2",
+	"robot": "\u6a5f\u5668\u4eba",
 	"manager":"\u7ba1\u7406\u54e1",
 	"exit": "\u9000\u51fa",
     "Exit Room": "\u78ba\u5b9a\u8981\u9000\u51fa'{{name}}'\u8a0e\u8ad6\u7d44\u55ce?",
@@ -116,9 +117,9 @@ webim.ui.i18n.store('zh-TW',{
     "accept": "\u63a5\u53d7",
     "reject": "\u62d2\u7d55",
     "Remove Buddy": "\u786e\u5b9a\u8981\u522a\u9664\u597d\u53cb{{name}}\u55ce?",
-    "Ask Initiate": "{{name}}\u8acb\u6c42\u52a0\u60a8\u70ba\u597d\u53cb",
-    "Ask Accepted": "{{name}}\u5df2\u63a5\u53d7\u60a8\u7684\u597d\u53cb\u8acb\u6c42",
-    "Ask Rejected": "{{name}}\u62d2\u7d55\u4e86\u60a8\u7684\u597d\u53cb\u8acb\u6c42"
+    "Ask Initiate": "{{name}}\u8acb\u6c42\u52a0\u60a8\u70ba\u597d\u53cb({{time}})",
+    "Ask Accepted": "{{name}}\u5df2\u63a5\u53d7\u60a8\u7684\u597d\u53cb\u8acb\u6c42({{time}})",
+    "Ask Rejected": "{{name}}\u62d2\u7d55\u4e86\u60a8\u7684\u597d\u53cb\u8acb\u6c42({{time}})"
 });
 
 webim.ui.i18n.store('zh-TW',{

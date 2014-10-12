@@ -24,9 +24,9 @@ import java.util.List;
 
 import org.json.JSONObject;
 
-import webim.client.WebimEndpoint;
-import webim.client.WebimMember;
-import webim.client.WebimRoom;
+import webim.model.WebimEndpoint;
+import webim.model.WebimMember;
+import webim.model.WebimRoom;
 
 /**
  * 读取群组成员: /Webim/members.do

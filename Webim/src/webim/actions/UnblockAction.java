@@ -20,8 +20,8 @@
  */
 package webim.actions;
 
-import webim.client.WebimEndpoint;
 import webim.client.WebimException;
+import webim.model.WebimEndpoint;
 
 @SuppressWarnings("serial")
 public class UnblockAction extends WebimAction {

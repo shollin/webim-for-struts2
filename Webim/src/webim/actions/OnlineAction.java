@@ -23,14 +23,16 @@ package webim.actions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import webim.client.WebimClient;
-import webim.client.WebimEndpoint;
-import webim.client.WebimHistory;
-import webim.client.WebimRoom;
+import webim.model.WebimEndpoint;
+import webim.model.WebimHistory;
+import webim.model.WebimRoom;
 
 /**
  * 用户上线: /Webim/online.do
@@ -51,22 +53,6 @@ public class OnlineAction extends WebimAction {
 		this.data = data;
 	}
 
-	private List<String> buddyIds(List<WebimEndpoint> buddies) {
-		List<String> ids = new ArrayList<String>();
-		for (WebimEndpoint b : buddies) {
-			ids.add(b.getId());
-		}
-		return ids;
-	}
-
-	private List<String> roomIds(List<WebimRoom> rooms) {
-		List<String> ids = new ArrayList<String>();
-		for (WebimRoom room : rooms) {
-			ids.add(room.getId());
-		}
-		return ids;
-	}
-
 	public String execute() throws Exception {
 		WebimEndpoint endpoint = currentEndpoint();
 		String uid = endpoint.getId();
@@ -75,8 +61,8 @@ public class OnlineAction extends WebimAction {
 		rooms.addAll(this.model.rooms(uid));
 		// Forward Online to IM Server
 		WebimClient client = this.client(endpoint);
-		List<String> buddyIds = buddyIds(buddies);
-		List<String> roomIds = roomIds(rooms);
+		Set<String> buddyIds = buddyIds(buddies);
+		Set<String> roomIds = roomIds(rooms);
 		try {
 			data = client.online(buddyIds, roomIds);
 			System.out.println(data.toString());
@@ -127,5 +113,22 @@ public class OnlineAction extends WebimAction {
 
 		return SUCCESS;
 	}
+
+	private Set<String> buddyIds(List<WebimEndpoint> buddies) {
+		Set<String> ids = new HashSet<String>();
+		for (WebimEndpoint b : buddies) {
+			ids.add(b.getId());
+		}
+		return ids;
+	}
+
+	private Set<String> roomIds(List<WebimRoom> rooms) {
+		Set<String> ids = new HashSet<String>();
+		for (WebimRoom room : rooms) {
+			ids.add(room.getId());
+		}
+		return ids;
+	}
+
 
 }

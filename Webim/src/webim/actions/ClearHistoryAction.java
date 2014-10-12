@@ -20,7 +20,7 @@
  */
 package webim.actions;
 
-import webim.client.WebimEndpoint;
+import webim.model.WebimEndpoint;
 
 /**
  * 清除历史记录: /Webim/clearhistory.do

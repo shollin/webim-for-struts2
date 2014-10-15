@@ -115,18 +115,18 @@ public class MessageAction extends WebimAction {
 			String answer = plugin.getRobot().answer(body);
 			WebimMessage answermsg = new WebimMessage(endpoint.getId(), plugin.getRobot()
 					.getNick(), answer, "", System.currentTimeMillis());
-			c.push(to, answermsg);
 			this.model.insertHistory(to, answermsg);
+			c.push(to, answermsg);
 		} else {
             WebimClient c = client(endpoint);
             WebimMessage msg = new WebimMessage(to, endpoint.getNick(), body,
                     style, System.currentTimeMillis());
             msg.setType(type);
             msg.setOffline("true".equals(offline) ? true : false);
-            c.publish(msg);
             if (body != null && !body.startsWith("webim-event:")) {
                 model.insertHistory(endpoint.getId(), msg);
             }
+            c.publish(msg);
         }
         data.put("status", "ok");
 		return SUCCESS;

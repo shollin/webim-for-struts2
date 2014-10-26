@@ -4,7 +4,7 @@
 
 [NexTalk](http://nextalk.im)为Struts2框架开发的快速WebIM集成包。可为Struts2框架开发站点或应用提供站内即时消息。
 
-Struts2开发包以代码接口方式，与站点的用户体系、好友关系、数据库无缝集成。WebIM的前端界面，集成后直接嵌入站点右下角。并支持在站点页面的任意位置，添加聊天按钮:
+Struts2开发包以代码接口方式，与站点的用户体系、好友关系、数据库无缝集成。WebIM的前端界面，集成后直接嵌入站点右下角。并支持在页面任意位置，添加聊天按钮:
 
 ![Struts2 Screenshot](http://nextalk.im/static/img/screenshots/struts2.png)
 
@@ -51,27 +51,41 @@ iOS手机客户端SDK | 6.0
 
 ### 源码下载
 
-[http://nextalk.im/packages/spring3](http://nextalk.im/packages/spring3)
+[http://nextalk.im/packages/struts2](http://nextalk.im/packages/struts2)
+
+主要目录与文件:
+
+目录或文件 | 说明
+---------|------
+src | Java源码目录
+src/webim/actions/ | WebIM的Actions
+src/webim/dao/ | WebIM的数据库访问对象
+src/webim/services/ | WebIM的服务对象，包括WebimPlugin, WebimModel
+resources | 资源目录
+resources/struts.xml | WebIM的Struts配置文件
+resources/static/| WebIM的前端界面静态资源文件
+WebContent | JSP和lib
+
 
 ### 运行演示
 
-Webim for Struts2开发包，自带WebimProject的演示项目，导入Eclipse即可运行。
+Webim for Struts2开发包，自带Webim的演示项目，导入Eclipse即可运行。
 
-1. 导入'WebimProject'项目到[Eclipse EE](http://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+1. 导入'Webim'项目到[Eclipse EE](http://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 
 2. Eclipse中创建Tomcat Server，启动项目: 'Run as' -> 'Run on Server' 
 
-3. 浏览器访问: http://localhost:8080/WebimProject/
+3. 浏览器访问: http://localhost:8080/Webim/
 
 ### 项目集成
 
 #### 集成代码
 
 ```
-WebimProject/
+Webim/
 	src/
 		webim/
-			controller/
+			actions/
 			dao/
 			service
 			
@@ -82,7 +96,7 @@ WebimProject/
 #### 集成依赖库
 
 ```
-WebimProject/
+Webim/
 	WebContent/
 		WEB-INF/ 
 			lib/
@@ -93,54 +107,132 @@ WebimProject/
 #### 集成JSP文件
 
 ```
-WebimProject/
+Webim/
 	WebContent/
-		WEB-INF/
-			jsp/
-				Webim/
+		*.jsp
 ```
 
 #### 集成前端静态资源
 
 ```
-WebimProject/
-	WebContent/
+Webim/
+	resources/
 		static/
 ```
 
 #### Struts2配置文件
+```
+Webim/
+	resources/
+		struts.xml
+```
 
-spring配置文件component-scan增加"webim"包。
+Webim的Actions:
+
+```
+<package name="webim" extends="struts-default" namespace="/">
+	<result-types>
+		<result-type name="json" class="org.apache.struts2.json.JSONResult" />	</result-types>
+	<action name="index" class="webim.actions.IndexAction">
+		<result name="success">Index.jsp</result>
+	</action>
+	<action name="boot" class="webim.actions.BootAction">
+		<result name="success">Boot.jsp</result>
+	</action>
+	<action name="online" class="webim.actions.OnlineAction">
+		<result name="success" type="json">
+			<param name="root">data</param>
+		</result>
+	</action>
+	<action name="offline" class="webim.actions.OfflineAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="message" class="webim.actions.MessageAction">
+		<result name="success" type="json">
+			<param name="root">data</param>
+		</result>
+	</action>
+	<action name="status" class="webim.actions.StatusAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="presence" class="webim.actions.PresenceAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="refresh" class="webim.actions.RefreshAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="members" class="webim.actions.MembersAction">
+		<result name="success" type="json">
+			<param name="root">members</param>
+		</result>
+	</action>
+	<action name="setting" class="webim.actions.SettingAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="notifications" class="webim.actions.NotificationsAction">
+		<result name="success" type="json">
+			<param name="root">data</param>
+		</result>
+	</action>
+	<action name="buddies" class="webim.actions.BuddiesAction">
+		<result name="success" type="json">
+			<param name="root">buddies</param>
+		</result>
+	</action>
+	<action name="history" class="webim.actions.HistoryAction">
+		<result name="success" type="json">
+			<param name="root">histories</param>
+		</result>
+	</action>
+	<action name="clear_history" class="webim.actions.ClearHistoryAction">
+		<result name="success">OK.jsp</result>
+	</action>
+	<action name="join" class="webim.actions.JoinAction">
+		<result name="success" type="json">
+			<param name="root">data</param>
+		</result>
+	</action>
+	<action name="leave" class="webim.actions.LeaveAction">
+		<result name="sucess">OK.jsp</result>
+	</action>
+	<action name="block" class="webim.actions.BlockAction">
+		<result name="sucess">OK.jsp</result>
+	</action>
+	<action name="unblock" class="webim.actions.UnblockAction">
+		<result name="sucess">OK.jsp</result>
+	</action>
+</package>
+```
 
 #### 启动项目验证
 
-启动Struts2项目，访问Webim/boot.do页面(注: 后缀根据spring配置可能不同)。
+启动Struts2项目，访问Webim/boot.do页面(注: 地址路径和后缀根据struts配置可能不同)。
 
 成功应返回一段javascript，内容类似:
 
 ```
 var _IMC = {
 	product: 'struts',
-   version: '5.7',
-   path: '/WebimProject/',
-   is_login: '1',
-   is_visitor: false,
-   user: '',
-   setting: {},
-   menu: '',
-   enable_chatlink: true,
-   enable_shortcut: false,
-   enable_menu: false,
-   enable_room: true,
-   enable_noti: true,
-   discussion: true,
-   theme: 'base',
-   local: 'zh-CN',
-   jsonp: false,
-   opacity: '80',
-   show_unavailable: true,
-   upload: false,
-   min: window.location.href.indexOf("webim_debug") != -1 ? "" : ".min"};
+	version: '5.7',
+	path: '/WebimProject/',
+	is_login: '1',
+	is_visitor: false,
+	user: '',
+	setting: {},
+	menu: '',
+	enable_chatlink: true,
+	enable_shortcut: false,
+	enable_menu: false,
+	enable_room: true,
+	enable_noti: true,
+	discussion: true,
+	theme: 'base',
+	local: 'zh-CN',
+	jsonp: false,
+	opacity: '80',
+	show_unavailable: true,
+	upload: false,
+	min: window.location.href.indexOf("webim_debug") != -1 ? "" : ".min"};
 
    _IMC.script = window.webim ? '' : ('<link href="' + _IMC.path + 'static/webim'+ _IMC.min + '.css?' + _IMC.version + '" media="all" type="text/css" rel="stylesheet"/><link href="' + _IMC.path + 'static/themes/' + _IMC.theme + '/jquery.ui.theme.css?' + _IMC.version + '" media="all" type="text/css" rel="stylesheet"/><script src="' + _IMC.path + 'static/webim' + _IMC.min + '.js?' + _IMC.version + '" type="text/javascript"></script><script src="' + _IMC.path + 'static/i18n/webim-' + _IMC.local + '.js?' + _IMC.version + '" type="text/javascript"></script>');
    _IMC.script += '<script src="' + _IMC.path + 'static/webim.'+ _IMC.product + '.js?' + _IMC.version + '" type="text/javascript"></script>';
@@ -155,7 +247,7 @@ WebimPlugin.java是与Struts项目的用户体系、好友关系以及群组关�
 
 方法名 | 参数 | 返回 |  说明
 ---- | ---- | ---- |   ---- | 
-endpoint | HttpServletRequest | WebimEndpoint | 根据当前登陆用户，返回WebimEndpoint对象。当前登陆用户信息一般从session或项目的用户服务读取。
+endpoint | | WebimEndpoint | 根据当前登陆用户，返回WebimEndpoint对象。当前登陆用户信息一般从session或项目的用户服务读取。
 buddies | uid | WebimEndpoint List |  根据当前登陆用户ID，读取该用户的好友列表
 buddiesByIds | uid, ids| WebimEndpoint List |  根据输入的用户id列表(ids)，返回用户列表
 
@@ -297,7 +389,7 @@ webim.robot | bool | true  |  WebIM插件是否支持机器人
 
 ### 定制界面
 
-webim.spring3.js
+webim.struts2.js
 
 ### 开启运行
 
@@ -319,7 +411,27 @@ Struts站点加载WebIM的页面，可以在任何位置添加下面的格式的
 ...
 ```
 
-## 模型对象与客户端类
+## Struts Actions
+
+WebIM前端与服务器通过Ajax接口交互，'webim.actions'包的Actions包括:
+
+Action | Method | URL | 说明
+-------| ------ | --- | ----
+BootAction | GET | webim/boot.do | 加载boot脚本
+OnlineAction | POST | webim/online.do | 用户上线
+OfflineAction| POST | webim/offline.do | 用户下线
+PresenceAction| POST | webim/presence.do | 现场变更
+MessageAction| POST | webim/message.do | 发送消息
+StatusAction| POST | webim/status.do | 发送输入状态
+BuddiesAction | GET | webim/buddies.do | 读取用户好友列表
+MembersAction | GET | webim/members.do | 读取群组成员
+JoinAction| POST | webim/join.do | 加入群组(聊天室)
+LeaveAction| POST | webim/leave.do | 离开群组(聊天室)
+SettingAction| POST | webim/setting.do | 个人设置
+HistoryAction | GET | webim/history.do | 读取聊天历史
+ClearHistoryAction| POST | webim/clear_history.do | 清除聊天历史
+
+## 模型对象
 
 
 WebIM的通用Java模型对象和客户端类，打包在***WebContent\WEB-INF\lib\webim-client-$vsn-$date.jar***。
@@ -367,8 +479,6 @@ status_time | string | 否 ||  状态最近更新时间
 公司: [NexTalk.IM](http://nextalk.im)
 
 作者: [Feng Lee](mailto:feng.lee@nextalk.im) 
-
-QQ: 1852861655
 
 版本: 5.7.1 (2014/10/15)
  

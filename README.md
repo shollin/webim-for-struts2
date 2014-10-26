@@ -69,7 +69,7 @@ WebContent | JSP和lib
 
 ### 运行演示
 
-Webim for Struts2开发包，自带Webim的演示项目，导入Eclipse即可运行。
+WebIM for Struts2开发包，自带'Webim'的演示项目，导入Eclipse即可运行。
 
 1. 导入'Webim'项目到[Eclipse EE](http://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 
@@ -127,7 +127,7 @@ Webim/
 		struts.xml
 ```
 
-Webim的Actions:
+Webim的Action映射:
 
 ```
 <package name="webim" extends="struts-default" namespace="/">
@@ -212,9 +212,9 @@ Webim的Actions:
 
 ```
 var _IMC = {
-	product: 'struts',
+	product: 'struts2',
 	version: '5.7',
-	path: '/WebimProject/',
+	path: '/Webim/',
 	is_login: '1',
 	is_visitor: false,
 	user: '',
@@ -403,7 +403,7 @@ Struts站点或应用，在需要显示WebIM的页面，直接嵌入WebIM的boot
 
 ### 聊天按钮
 
-Struts站点加载WebIM的页面，可以在任何位置添加下面的格式的“聊天按钮":
+Struts站点加载WebIM的页面，可以在任何位置添加下面格式的“聊天按钮":
 
 ```
 <a class="webim-chatbtn" href="/chat/1">Chat with User1</a>
@@ -413,7 +413,7 @@ Struts站点加载WebIM的页面，可以在任何位置添加下面的格式的
 
 ## Struts Actions
 
-WebIM前端与服务器通过Ajax接口交互，'webim.actions'包的Actions包括:
+WebIM前端与服务器通过Ajax接口交互，'webim.actions'包的Action包括:
 
 Action | Method | URL | 说明
 -------| ------ | --- | ----

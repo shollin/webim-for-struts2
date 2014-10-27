@@ -1,6 +1,6 @@
 # WebIM for Struts2
 
-## 简介
+## 概述
 
 [NexTalk](http://nextalk.im)为Struts2框架开发的快速WebIM集成包。可为Struts2框架开发站点或应用提供站内即时消息。
 

@@ -40,6 +40,7 @@ public class BootAction extends ActionSupport {
 	public boolean enable_room;
 	public boolean enable_noti;
 	public boolean enable_chatlink;
+	public boolean enable_chatbtn;
 	public boolean enable_shortcut;
 	public boolean enable_menu;
 	public boolean show_unavailable;
@@ -54,6 +55,7 @@ public class BootAction extends ActionSupport {
 		enable_room = config.getBoolean("enable_room");
 		enable_noti = config.getBoolean("enable_noti");
 		enable_chatlink = config.getBoolean("enable_chatlink");
+		enable_chatbtn = config.getBoolean("enable_chatbtn");
 		enable_shortcut = config.getBoolean("enable_shortcut");
 		enable_menu = config.getBoolean("enable_menu");
 		show_unavailable = config.getBoolean("show_unavailable");

@@ -20,6 +20,9 @@
 		<action name="boot" class="webim.actions.BootAction">
 			<result name="success">Boot.jsp</result>
 		</action>
+		<action name="chatbox" class="webim.actions.ChatboxAction">
+			<result name="success">Chatbox.jsp</result>
+		</action>
 		<action name="online" class="webim.actions.OnlineAction">
 			<result name="success" type="json">
 				<param name="root">data</param>

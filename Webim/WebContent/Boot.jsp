@@ -4,7 +4,7 @@
     
     var _IMC = {
 	            product: 'struts2',
-	            version: '5.7.1',
+	            version: '5.8',
 	            path: '/Webim/',
 	            is_login: true,
                 is_visitor: false,
@@ -12,6 +12,7 @@
 	            setting: '{}',
 	            menu: '',
 	            enable_chatlink: <s:property value="enable_chatlink" />,
+	            enable_chatbtn: <s:property value="enable_chatbtn" />,
 	            enable_shortcut: <s:property value="enable_shortcut" />,
 	            enable_menu: <s:property value="enable_menu" />,
 	            enable_room: <s:property value="enable_room" />,

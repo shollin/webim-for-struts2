@@ -28,7 +28,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.3.15.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-json-plugin-2.3.15.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xwork-core-2.3.15.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/webim.client-5.8-20141218.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/webim.client-5.7.1-20141012.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -156,6 +156,18 @@ public class WebimPlugin {
 	}
 
 	/**
+	 * 根据uid查询用户
+	 * @param uid
+	 * @return
+	 */
+	public WebimEndpoint findUser(String uid) {
+		WebimEndpoint e = new WebimEndpoint(uid, "user" + uid);
+		e.setAvatar("static/images/male.png");
+		return e;
+	}
+
+
+	/**
 	 * 根据roomId读取群组
 	 * 
 	 * @param roomId

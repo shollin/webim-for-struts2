@@ -56,7 +56,7 @@ body {
 	<div class="wrapper">
 		<div class="header">
 			<h1>WebIM for Struts2</h1>
-			<p>版本: 5.7.1 (2014/10/26)</p>
+			<p>版本: 5.8 (2014/12/20)</p>
 		</div>
 		<div class="content">
 			<h2>简介</h2>

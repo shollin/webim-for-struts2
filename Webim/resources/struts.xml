@@ -68,6 +68,10 @@
 				<param name="root">histories</param>
 			</result>
 		</action>
+		<action name="download_history" class="webim.actions.DownloadHistoryAction">
+			<result name="success">Upload.jsp</result>
+		</action>
+
 		<action name="clear_history" class="webim.actions.ClearHistoryAction">
 			<result name="success">OK.jsp</result>
 		</action>
@@ -84,6 +88,9 @@
 		</action>
 		<action name="unblock" class="webim.actions.UnblockAction">
 			<result name="sucess">OK.jsp</result>
+		</action>
+		<action name="upload" class="webim.actions.UploadAction">
+			<result name="success">Upload.jsp</result>
 		</action>
 	</package>
 </struts>

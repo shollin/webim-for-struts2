@@ -20,7 +20,7 @@
  */
 package webim.actions;
 
-import com.opensymphony.xwork2.ActionSupport;
+import webim.model.WebimEndpoint;
 
 /**
  * 文件上传: /Webim/upload.do
@@ -29,10 +29,16 @@ import com.opensymphony.xwork2.ActionSupport;
  * @since 1.0
  */
 @SuppressWarnings("serial")
-public class UploadAction extends ActionSupport {
+public class UploadAction extends WebimAction {
 
-    public String execute() {
-    	return "ok";
-    }
-    
+	public String execute() {
+		// WebimEndpoint endpoint = currentEndpoint();
+		// response.setHeader("Content-Disposition",
+		// "attachment; filename=\"histories.html\"");
+		return SUCCESS;
+	}
+
 }
+
+
+

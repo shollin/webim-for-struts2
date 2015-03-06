@@ -21,6 +21,7 @@
 	            local: '<s:property value="local" />',
 	            opacity: <s:property value="opacity" />,
 	            show_unavailable: <s:property value="show_unavailable" />,
+	            upload: true,
 	            min: window.location.href.indexOf("webim_debug") != -1 ? "" : ".min"
             };
             
